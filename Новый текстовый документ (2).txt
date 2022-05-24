@@ -1,0 +1,368 @@
+        mov [0x0042], 0xFFFF;-1
+        mov [0x0044], 0xFFFD;-3
+        mov [0x0046], 0xFFFE;-2        
+        mov [0x0048], 0x0003;3
+        mov [0x004A], 0x0004;4
+        mov [0x004C], 0x0001;1
+        mov [0x004E], 0xFFFB;-5        
+        mov [0x0050], 0x0005;5
+        mov [0x0052], 0xFFFC;-4
+        mov [0x0054], 0x0002;2
+        mov [0x0056], 0xFFFA;-6 
+
+        cmp ax, bx
+
+        je if_e
+        ja if_a
+        jb if_b
+
+
+        if_a:
+            mov [0x0531], ax
+            jmp final
+        if_b:
+            mov [0x0531], bx
+            jmp final
+        if_e:
+            mov [0x0531], 0xE
+            
+        final:
+              int 21h
+
+        
+        mov ax, 6
+        mov bx, 6
+        mov cx, 12
+        mov [0x0531], 0x44 
+        mov [0x0538], 0x44    
+        
+        
+        mov [0x0500], 0x0006;6
+        mov [0x0502], 0xFFFF;-1
+        mov [0x0504], 0xFFFD;-3
+        mov [0x0506], 0xFFFE;-2
+        mov [0x0508], 0x0003;3
+        mov [0x050A], 0x0004;4
+        mov [0x050C], 0x0001;1
+        mov [0x050E], 0xFFFB;-5
+        mov [0x0510], 0x0005;5
+        mov [0x0512], 0xFFFC;-4
+        mov [0x0514], 0x0002;2
+        mov [0x0516], 0xFFFA;-6
+
+
+
+
+
+
+
+;        swap:
+;            mov dx,ax
+;            mov ax,bx
+;            mov bx,dx
+;            jmp 
+;        
+;        if_a:
+;            jmp swap
+;            jmp l1
+;        if_b:
+;            jmp l1
+;        if_e:
+;            jmp l1 
+;            
+;        l0: mov ax, [0x0500]
+;        getabs1: neg ax
+;                js getabs1
+;            mov bx, [0x0502]
+;        getabs2: neg bx
+;                js getabs2            
+;            cmp ax, bx
+;            ja if_a
+;            jb if_b
+;            je if_e
+;         
+;            
+;        l1: loop l0   
+;        
+;        final: int 21h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         odd:mov si, [0x04FA]
+            mov di, si
+            add di, 0x2
+            mov [0x04FA], di
+            jmp p
+        even:mov si, [0x04FE]
+            mov di, si
+            add di, 0x2
+            mov [0x04FE], di
+           p:mov [si], ax
+
+
+
+
+
+
+
+
+
+
+
+
+
+        mov cx, 13   
+           
+        mov [0x0500], 0x0006;6
+        mov [0x0502], 0xFFFF;-1
+        mov [0x0504], 0xFFFD;-3
+        mov [0x0506], 0xFFFE;-2
+        mov [0x0508], 0x0003;3
+        mov [0x050A], 0x0004;4
+        mov [0x050C], 0x0001;1
+        mov [0x050E], 0xFFFB;-5
+        mov [0x0510], 0x0005;5
+        mov [0x0512], 0xFFFC;-4
+        mov [0x0514], 0x0002;2
+        mov [0x0516], 0xFFFA;-6 
+        
+        mov [0x04FC], 0x0500;start
+        mov [0x04FE], 0x0520;even
+        mov [0x04FA], 0x0540;odd 
+        
+        jmp l1         
+
+        l0: mov di, [0x04FC]
+            mov ax, [di]
+            add di, 0x2
+            mov [0x04FC], di
+            test ax,1
+            jz even 
+            mov si, 0x04FA
+            jmp p
+        even:mov si, 0x04FE
+           p:mov di, [si]
+            mov [di], ax
+            add di, 0x2
+            mov [si], di
+            
+        l1: loop l0
+        
+        final:
+
+
+
+
+
+
+        l0: mov di, [0x04FC]
+            mov ax, [di]
+            add [0x04FC], 0x2
+            test ax,1
+            jz even 
+            mov si, 0x04FA
+            jmp p
+        even:mov si, 0x04FE
+           p:mov di, [si]
+            mov [di], ax
+            add di, 0x2
+            mov [si], di
+            
+        l1: loop l0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        mov cx, 13   
+           
+        mov [0x0500], 0x0006;6
+        mov [0x0502], 0xFFFF;-1
+        mov [0x0504], 0xFFFD;-3
+        mov [0x0506], 0xFFFE;-2
+        mov [0x0508], 0x0003;3
+        mov [0x050A], 0x0004;4
+        mov [0x050C], 0x0001;1
+        mov [0x050E], 0xFFFB;-5
+        mov [0x0510], 0x0005;5
+        mov [0x0512], 0xFFFC;-4
+        mov [0x0514], 0x0002;2
+        ;mov [0x0516], 0xFFFA;-6
+        mov [0x0516], 0xFFF9;-7 
+        
+        mov [0x04FC], 0x0500;start 
+        
+        mov [0x04FE], 0x0520;even
+        mov [0x04FA], 0x0540;odd
+        mov [0x0452], 0x0520;even constant
+        mov [0x0454], 0x0540;odd  constant
+        
+        mov [0x04F8], 0x0560;sort even
+        mov [0x04F6], 0x0580;sort odd
+        mov [0x0450], 0x0560;sort even constant
+        mov [0x044E], 0x0580;sort odd constant
+        
+        mov [0x04F4], 0x0;count even
+        mov [0x04F2], 0x0;count odd
+        mov [0x04F0], 0x0;count arithmetic mean odd 
+         
+        mov di, [0x04FC]
+        
+        jmp l1         
+            
+             
+        l0: 
+            mov ax, [di]
+            add di, 0x2
+            test ax,1
+            jz even 
+            mov si, 0x04FA
+            jmp p
+        even:mov si, 0x04FE
+           p:mov bx,[si] 
+             mov [bx], ax
+             add [si], 0x2
+            
+        l1: loop l0
+        
+        mov cx, 13
+        mov di, [0x0452]
+        mov [0x04FE], di
+        q0: mov di, [0x04FE]
+            mov ax, [di]
+            cmp ax, 0
+            je finish_count_even
+            add [0x04F4], 1
+            add [0x04FE], 2
+           
+        q1:loop q0
+        
+        finish_count_even:
+        
+        mov cx,13
+        mov di, [0x0454]
+        mov [0x04FA], di
+        q2: mov di, [0x04FA]
+            mov ax, [di]
+            cmp ax, 0
+            je finish_count_odd
+            add [0x04F2], 1
+            add [0x04FA], 2
+        
+        
+        q3:loop q2 
+        
+        finish_count_odd:
+        
+        
+        mov cx, 13
+        mov di, [0x0454]
+        q4: mov si, [di]
+        add di, 2
+        cmp si, 0
+        je finish_count_arithmetic_mean_odd
+        add ax, si
+        
+        q5:loop q4
+        finish_count_arithmetic_mean_odd: ;mov [0x04F0], ax
+        ;mov bl, [0x04F2]
+        cmp ax,0
+        js q6 
+        div [0x04F2]
+        mov [0x04F0], ax 
+        q6:neg ax
+        div [0x04F2]
+        neg ax
+        mov [0x04F0], ax
+        
+         
+        
+        final:
+
+
+
+
+
+
+
+;        mov cx, 13
+;        mov di, [0x0452]
+;        mov [0x04FE], di
+;        q0: mov di, [0x04FE]
+;            mov ax, [di]
+;            cmp ax, 0
+;            je finish_count_even
+;            add [0x04F4], 1
+;            add [0x04FE], 2
+;           
+;        q1:loop q0
+;        
+;        finish_count_even:
+;        
+;        mov cx,13
+;        mov di, [0x0454]
+;        mov [0x04FA], di
+;        q2: mov di, [0x04FA]
+;            mov ax, [di]
+;            cmp ax, 0
+;            je finish_count_odd
+;            add [0x04F2], 1
+;            add [0x04FA], 2
+;        
+;        
+;        q3:loop q2 
+;        
+;        finish_count_odd:
+
+
+;        mov cx, [0x04F2]
+;        mov di, [0x04FA]
+;        mov ax, 0
+;        q4:add ax, [di]
+;        add di, 2
+;        
+;        q5:loop q4
+
+
+
+
+
+
+
+
+        

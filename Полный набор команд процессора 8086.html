@@ -1,0 +1,6194 @@
+
+<!-- saved from url=(0069)http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JE -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Полный набор команд процессора 8086_files/watch.js"></script><script type="text/javascript" src="./Полный набор команд процессора 8086_files/uutils.fcg"></script>
+<script type="text/javascript">
+try{
+	Object.defineProperty(window, "u_global_data", {
+	   value: {
+   			basic_params:{dcode:"o",ads_lite:0,isadblock:1,user_country:"ru",user_ip:"93.80.64.228",server:"s206",site_type:"narod",site_lng:"RU",rndid:"cbST8v",ban240pos:"0",ischild:"0",ispolitic:"0",iswarez:"0",isnative:"1",isdoubtful:"0",isabandoned:"1",iscriteo970:"1",isreligion:"0",iswarn:"0",iabcat:"19",isgoogle:"1",isyandex:"0",ismobile:"0"},
+   			geo:{city:"Serpukhov",region:"Moskovskaya oblast'"},
+   			urls:{
+   				adprru:[],
+   				adprci:[]
+   			}
+   		},
+	   writable: false,
+	   configurable: false
+	});
+	/*var u_global_data={
+			basic_params:{dcode:"o",ads_lite:0,isadblock:1,user_country:"ru",user_ip:"93.80.64.228",server:"s206",site_type:"narod",site_lng:"RU",rndid:"cbST8v",ban240pos:"0",ischild:"0",ispolitic:"0",iswarez:"0",isnative:"1",isdoubtful:"0",isabandoned:"1",iscriteo970:"1",isreligion:"0",iswarn:"0",iabcat:"19",isgoogle:"1",isyandex:"0",ismobile:"0"},
+			geo:{city:"Serpukhov",region:"Moskovskaya oblast'"},
+			urls:{
+				adprru:[],
+				adprci:[]
+			}
+		};*/
+	
+}catch(e){};
+</script>
+<script type="text/javascript" src="./Полный набор команд процессора 8086_files/ads.js" onload="u_global_data.basic_params.isadblock=0"></script>
+<script type="text/javascript" src="./Полный набор команд процессора 8086_files/cM91"></script>
+
+	<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit;narodadst1?r"+escape(document.referrer)+(screen&&";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth||screen.pixelDepth))+";u"+escape(document.URL)+";"+Date.now();</script>
+	<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit;narod_desktop_ad?r"+escape(document.referrer)+(screen&&";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth||screen.pixelDepth))+";u"+escape(document.URL)+";"+Date.now();</script><script type="text/javascript" src="./Полный набор команд процессора 8086_files/jquery-3.3.1.min.js"></script><script type="text/javascript" src="./Полный набор команд процессора 8086_files/uutils(1).fcg"></script>
+
+
+
+<title>Полный набор команд процессора 8086</title>
+
+<meta name="keywords" content="emu8086, 8086, tutorial, programming, assembler tutorial, tutorial for begginers">
+<meta name="Description" content="Полный набор команд процессора 8086"> 
+<meta name="Author" content="Перевод: Поляков А.В. http://www.avprog.narod.ru">
+<link href="./Полный набор команд процессора 8086_files/styles.css" media="screen" rel="stylesheet" type="text/css">
+<style type="text/css" id="ya_share_style">.b-share-popup-wrap{z-index:1073741823;position:absolute;width:500px}.b-share-popup{position:absolute;z-index:1073741823;border:1px solid #888;background:#FFF;color:#000}.b-share-popup-wrap .b-share-popup_down{top:0}.b-share-popup-wrap .b-share-popup_up{bottom:0}.b-share-popup-wrap_state_hidden{position:absolute!important;top:-9999px!important;right:auto!important;bottom:auto!important;left:-9999px!important;visibility:hidden!important}.b-share-popup,x:nth-child(1){border:0;padding:1px!important}@media all and (resolution=0){.b-share-popup,x:nth-child(1),x:-o-prefocus{padding:0!important;border:1px solid #888}}.b-share-popup__i{display:-moz-inline-box;display:inline-block;padding:5px 0!important;overflow:hidden;vertical-align:top;white-space:nowrap;visibility:visible;background:#FFF;-webkit-box-shadow:0 2px 9px rgba(0,0,0,.6);-moz-box-shadow:0 2px 9px rgba(0,0,0,.6);box-shadow:0 2px 9px rgba(0,0,0,.6)}.b-share-popup__item{font:1em/1.25em Arial,sans-serif;display:block;padding:5px 15px!important;white-space:nowrap;background:#FFF}.b-share-popup__item,a.b-share-popup__item:link,a.b-share-popup__item:visited{text-decoration:none!important;border:0!important}a.b-share-popup__item{cursor:pointer}a.b-share-popup__item .b-share-popup__item__text{display:inline;text-decoration:underline;color:#1A3DC1}a.b-share-popup__item:hover{word-spacing:0}a.b-share-popup__item:hover .b-share-popup__item__text{color:red;cursor:pointer}.b-share-popup__icon{display:-moz-inline-box;display:inline-block;margin:-3px 0 0;padding:0 5px 0 0!important;vertical-align:middle}.b-share-popup__icon_input{width:21px;height:16px;margin-top:-6px;padding:0!important}.b-share-popup__icon__input{margin-right:0;margin-left:2px;vertical-align:top}.b-share-popup__spacer{display:block;padding-top:10px!important}.b-share-popup__header{font:86%/1em Verdana,sans-serif;display:block;padding:10px 15px 5px!important;color:#999}.b-share-popup__header_first{padding-top:5px!important}.b-share-popup__input{font:86%/1em Verdana,sans-serif;display:block;padding:5px 15px!important;color:#999;text-align:left}.b-share-popup__input__input{font:1em/1em Verdana,sans-serif;display:block;width:10px;margin:5px 0 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;resize:none;text-align:left;direction:ltr}.b-share-popup_down .b-share-popup_with-link .b-share-popup__input_link{position:absolute;top:5px;right:0;left:0}.b-share-popup_up .b-share-popup_with-link .b-share-popup__input_link{position:absolute;right:0;bottom:5px;left:0}.b-share-popup_down .b-share-popup_with-link{padding-top:55px!important}.b-share-popup_up .b-share-popup_with-link{padding-bottom:55px!important}.b-share-popup_down .b-share-popup_expandable .b-share-popup__main{padding-bottom:25px!important}.b-share-popup_up .b-share-popup_expandable .b-share-popup__main{padding-top:25px!important}.b-share-popup_down .b-share-popup_yandexed{padding-bottom:10px!important}.b-share-popup_up .b-share-popup_yandexed{padding-top:10px!important}.b-share-popup__yandex{position:absolute;right:4px;bottom:2px;font:78.125%/1em Verdana,sans-serif;padding:3px!important;background:0 0}a.b-share-popup__yandex:link,a.b-share-popup__yandex:visited{color:#C6C5C5;text-decoration:none}a.b-share-popup__yandex:link:hover,a.b-share-popup__yandex:visited:hover{color:red;text-decoration:underline}.b-share-popup_up .b-share-popup__yandex{top:2px;bottom:auto}.b-share-popup_expandable .b-share-popup__yandex{right:auto;left:4px}.b-share-popup_to-right .b-share-popup_expandable .b-share-popup__yandex{right:4px;left:auto}.b-share-popup__expander .b-share-popup__item{position:absolute;bottom:5px;font:86%/1em Verdana,sans-serif;margin:10px 0 0;padding:5px 10px!important;cursor:pointer;color:#999;background:0 0}.b-share-popup_to-right,.b-share-popup_to-right .b-share-popup__expander{direction:rtl}.b-share-popup_to-right .b-share-popup__expander .b-share-popup__icon{padding:0 0 0 5px!important}.b-share-popup_up .b-share-popup__expander .b-share-popup__item{top:-5px;bottom:auto}.b-share-popup__expander .b-share-popup__item:hover .b-share-popup__item__text{text-decoration:underline}.b-share-popup__expander .b-ico_action_rarr,.b-share-popup_to-right .b-share-popup__expander .b-ico_action_larr,.b-share-popup_full .b-share-popup__expander .b-ico_action_larr,.b-share-popup_to-right .b-share-popup_full .b-share-popup__expander .b-ico_action_rarr,.b-share-popup__expander .b-share-popup__item__text_collapse,.b-share-popup_full .b-share-popup__item__text_expand{display:none}.b-share-popup_to-right .b-share-popup__expander .b-ico_action_rarr,.b-share-popup_full .b-share-popup__item__text_collapse,.b-share-popup_full .b-share-popup__expander .b-ico_action_rarr,.b-share-popup_to-right .b-share-popup_full .b-share-popup__expander .b-ico_action_larr{display:inline}.b-ico_action_rarr,.b-ico_action_larr{width:8px;height:7px;border:0}.b-share-popup__main,.b-share-popup__extra{direction:ltr;vertical-align:bottom;text-align:left}.b-share-popup_down .b-share-popup__main,.b-share-popup_down .b-share-popup__extra{vertical-align:top}.b-share-popup__main{display:-moz-inline-stack;display:inline-block}.b-share-popup__extra{display:none;margin:0 -10px 0 0}.b-share-popup_full .b-share-popup__extra{display:-moz-inline-stack;display:inline-block}.b-share-popup_to-right .b-share-popup__extra{margin:0 0 0 -10px}.b-share-popup__tail{position:absolute;width:21px;height:10px;margin:0 0 0 -11px}.b-share-popup_down .b-share-popup__tail{top:-10px;background:url("//yastatic.net/share/static/b-share-popup_down__tail.gif") 0 0 no-repeat}.b-share-popup_up .b-share-popup__tail{bottom:-10px;background:url("//yastatic.net/share/static/b-share-popup_up__tail.gif") 0 0 no-repeat}.b-share-popup_down .b-share-popup__tail,x:nth-child(1){top:-9px;background-image:url("//yastatic.net/share/static/b-share-popup_down__tail.png")}.b-share-popup_up .b-share-popup__tail,x:nth-child(1){bottom:-9px;background-image:url("//yastatic.net/share/static/b-share-popup_up__tail.png")}@media all and (resolution=0){.b-share-popup_down .b-share-popup__tail,x:nth-child(1),x:-o-prefocus{top:-10px;background-image:url("//yastatic.net/share/static/b-share-popup_down__tail.gif")}.b-share-popup_up .b-share-popup__tail,x:nth-child(1),x:-o-prefocus{bottom:-10px;background-image:url("//yastatic.net/share/static/b-share-popup_up__tail.gif")}}.b-share-popup .b-share-popup_show_form_mail,.b-share-popup .b-share-popup_show_form_html{padding:0!important}.b-share-popup .b-share-popup_show_form_mail .b-share-popup__main,.b-share-popup .b-share-popup_show_form_html .b-share-popup__main,.b-share-popup .b-share-popup_show_form .b-share-popup__main,.b-share-popup .b-share-popup_show_form_mail .b-share-popup__extra,.b-share-popup .b-share-popup_show_form_html .b-share-popup__extra,.b-share-popup .b-share-popup_show_form .b-share-popup__extra{height:15px;padding:0!important;overflow:hidden;visibility:hidden}.b-share-popup_show_form_mail .b-share-popup__expander,.b-share-popup_show_form_html .b-share-popup__expander,.b-share-popup_show_form .b-share-popup__expander,.b-share-popup_show_form_mail .b-share-popup__input_link,.b-share-popup_show_form_html .b-share-popup__input_link,.b-share-popup_show_form .b-share-popup__input_link{display:none}.b-share-popup__form{position:relative;display:none;overflow:hidden;padding:5px 0 0!important;margin:0 0 -15px;white-space:normal}.b-share-popup_show_form_mail .b-share-popup__form_mail,.b-share-popup_show_form_html .b-share-popup__form_html,.b-share-popup_show_form .b-share-popup__form{display:block}.b-share-popup__form__link{padding:5px!important;margin:0 0 5px 10px;text-decoration:underline;cursor:pointer;color:#1A3DC1}.b-share-popup__form__link,.b-share-popup__form__button{font:86%/1.4545em Verdana,sans-serif;float:left;display:inline}.b-share-popup__form__button{margin:5px 0 0 15px}.b-share-popup__form__close{font:86%/1.4545em Verdana,sans-serif;float:right;display:inline;padding:5px!important;margin:0 10px 5px 0;cursor:pointer;color:#999}a.b-share-popup__form__link:hover,a.b-share-popup__form__close:hover{text-decoration:underline;color:red}.b-share-popup_font_fixed .b-share-popup__item{font-size:12.8px}.b-share-popup_font_fixed .b-share-popup__header,.b-share-popup_font_fixed .b-share-popup__input,.b-share-popup_font_fixed .b-share-popup__expander .b-share-popup__item,.b-share-popup_font_fixed .b-share-popup__form__link,.b-share-popup_font_fixed .b-share-popup__form__button,.b-share-popup_font_fixed .b-share-popup__form__close{font-size:11px}.b-share-popup_font_fixed .b-share-popup__yandex{font-size:10px}.b-share-form-button{font:86%/17px Verdana,Arial,sans-serif;display:-moz-inline-box;display:inline-block;position:relative;height:19px;margin:0 3px;padding:0 4px;cursor:default;white-space:nowrap;text-decoration:none!important;color:#000!important;border:none;outline:none;background:url("//yastatic.net/share/static/b-share-form-button.png") 0 -20px repeat-x}.b-share-form-button:link:hover,.b-share-form-button:visited:hover{color:#000!important}.b-share-form-button__before,.b-share-form-button__after{position:absolute;width:3px;height:19px;background:url("//yastatic.net/share/static/b-share-form-button.png")}.b-share-form-button__before{margin-left:-7px}.b-share-form-button__after{margin-left:4px;background-position:-3px 0}.b-share-form-button::-moz-focus-inner{border:none}button.b-share-form-button .b-share-form-button__before,button.b-share-form-button .b-share-form-button__after{margin-top:-1px}@-moz-document url-prefix(){button.b-share-form-button .b-share-form-button__after{margin-top:-2px;margin-left:6px}button.b-share-form-button .b-share-form-button__before{margin-top:-2px;margin-left:-9px}}SPAN.b-share-form-button:hover,.b-share-form-button_state_hover{background-position:0 -60px}SPAN.b-share-form-button:hover .b-share-form-button__before,.b-share-form-button_state_hover .b-share-form-button__before{background-position:0 -40px}SPAN.b-share-form-button:hover .b-share-form-button__after,.b-share-form-button_state_hover .b-share-form-button__after{background-position:-3px -40px}.b-share-form-button_state_pressed,.b-share-form-button_state_pressed .b-share-form-button_share{background-position:0 -100px!important}.b-share-form-button_state_pressed .b-share-form-button__before{background-position:0 -80px!important}.b-share-form-button_state_pressed .b-share-form-button__after{background-position:-3px -80px!important}button.b-share-form-button_state_pressed{overflow:visible}.b-share-form-button_icons{position:relative;padding:0;background-position:0 -20px!important}.b-share-form-button_icons .b-share-form-button__before{left:0;margin-left:-3px;background-position:0 0!important}.b-share-form-button_icons .b-share-form-button__after{z-index:-1;margin-left:0;background-position:-3px 0!important}.b-share-form-button_icons .b-share__handle{padding:2px!important}.b-share-form-button_icons .b-share__handle_more{position:relative;padding-right:6px!important;margin-right:-4px}.b-share-form-button_icons .b-share-icon{opacity:.5;background-image:url("//yastatic.net/share/static/b-share-icon_size_14.png")}.b-share-form-button_icons A.b-share__handle:hover .b-share-icon{opacity:1}.b-share{font:86%/1.4545em Arial,sans-serif;display:-moz-inline-box;display:inline-block;padding:1px 3px 1px 4px!important;vertical-align:middle}.b-share .b-share-form-button{font-size:1em}.b-share__text .b-share-icon{margin:0 5px 0 0;border:none}.b-share__text{margin-right:5px}.b-share__handle{float:left;height:16px;padding:5px 3px 5px 2px!important;cursor:pointer;text-align:left;text-decoration:none!important}.b-share__handle_cursor_default{cursor:default}.b-share__handle .b-share-form-button{margin-top:-2px}.b-share__hr{display:none;float:left;width:1px;height:26px;margin:0 3px 0 2px}a.b-share__handle:hover .b-share__text{text-decoration:underline;color:red}.b-share_bordered{padding:0 2px 0 3px!important;border:1px solid #E4E4E4;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px}.b-share_bordered .b-share__hr{display:inline;background:#E4E4E4}.b-share_link{margin:-8px 0}a.b-share_link{margin:0}.b-share_link .b-share__text{text-decoration:underline;color:#1A3DC1}.b-share-form-button_share{padding-left:26px!important;vertical-align:top}.b-share-form-button_share .b-share-form-button__before{margin-left:-29px}.b-share-form-button_share .b-share-form-button__icon{position:absolute;width:20px;height:17px;margin:1px 0 0 -23px;background:url("//yastatic.net/share/static/b-share-form-button_share__icon.png") 0 0 no-repeat}.b-share-pseudo-link{border-bottom:1px dotted;cursor:pointer;text-decoration:none!important}.b-share_font_fixed{font-size:11px}.b-share__handle_more{font-size:9px;margin-top:-1px;color:#7B7B7B}A.b-share__handle_more:hover{color:#000}.b-share__group{float:left}.b-share-icon{float:left;display:inline;overflow:hidden;width:16px;height:16px;padding:0!important;vertical-align:top;border:0;background:url("//yastatic.net/share/static/b-share-icon.png") 0 99px no-repeat}.b-share-icon_vkontakte,.b-share-icon_custom{background-position:0 0}.b-share-icon_yaru,.b-share-icon_yaru_photo,.b-share-icon_yaru_wishlist{background-position:0 -17px}.b-share-icon_lj{background-position:0 -34px}.b-share-icon_twitter{background-position:0 -51px}.b-share-icon_facebook{background-position:0 -68px}.b-share-icon_moimir{background-position:0 -85px}.b-share-icon_friendfeed{background-position:0 -102px}.b-share-icon_mail{background-position:0 -119px}.b-share-icon_html{background-position:0 -136px}.b-share-icon_postcard{background-position:0 -153px}.b-share-icon_odnoklassniki{background-position:0 -170px}.b-share-icon_blogger{background-position:0 -187px}.b-share-icon_delicious{background-position:0 -221px}.b-share-icon_gbuzz{background-position:0 -238px}.b-share-icon_linkedin{background-position:0 -255px}.b-share-icon_myspace{background-position:0 -272px}.b-share-icon_evernote{background-position:0 -289px}.b-share-icon_digg{background-position:0 -306px}.b-share-icon_juick{background-position:0 -324px}.b-share-icon_moikrug{background-position:0 -341px}.b-share-icon_yazakladki{background-position:0 -358px}.b-share-icon_liveinternet{background-position:0 -375px}.b-share-icon_tutby{background-position:0 -392px}.b-share-icon_diary{background-position:0 -409px}.b-share-icon_gplus{background-position:0 -426px}.b-share-icon_pocket{background-position:0 -443px}.b-share-icon_surfingbird{background-position:0 -460px}.b-share-icon_pinterest{background-position:0 -477px}.b-share-icon_renren{background-position:0 0}.b-share-icon_renren,.b-share-icon_sina_weibo{background:url("//yastatic.net/share/static/b-share-icon__china.png") no-repeat}.b-share-icon_sina_weibo{background-position:-18px 0}.b-share-icon_qzone{background-position:-36px 0}.b-share-icon_qzone,.b-share-icon_tencent_weibo{background:url("//yastatic.net/share/static/b-share-icon__china.png") no-repeat}.b-share-icon_tencent_weibo{background-position:-54px 0}.b-share_theme_dark .b-share-icon{background:url("//yastatic.net/share/static/b-share-icons__theme_dark.png") 99px 0 no-repeat}.b-share_theme_dark .b-share-icon_odnoklassniki{background-position:-4px -3px}.b-share_theme_dark .b-share-icon_vkontakte{background-position:-24px -3px}.b-share_theme_dark .b-share-icon_twitter{background-position:-44px -3px}.b-share_theme_dark .b-share-icon_facebook{background-position:-64px -3px}.b-share_theme_dark .b-share-icon_lj{background-position:-85px -3px}.b-share_theme_dark .b-share-icon_yaru{background-position:-105px -3px}.b-share_theme_dark .b-share-popup .b-share-icon_odnoklassniki,.b-share_theme_dark .b-share-icon_odnoklassniki:hover{background-position:-4px -28px}.b-share_theme_dark .b-share-popup .b-share-icon_vkontakte,.b-share_theme_dark .b-share-icon_vkontakte:hover{background-position:-24px -28px}.b-share_theme_dark .b-share-popup .b-share-icon_twitter,.b-share_theme_dark .b-share-icon_twitter:hover{background-position:-44px -28px}.b-share_theme_dark .b-share-popup .b-share-icon_facebook,.b-share_theme_dark .b-share-icon_facebook:hover{background-position:-64px -28px}.b-share_theme_dark .b-share-popup .b-share-icon_lj,.b-share_theme_dark .b-share-icon_lj:hover{background-position:-85px -28px}.b-share_theme_dark .b-share-popup .b-share-icon_yaru,.b-share_theme_dark .b-share-icon_yaru:hover{background-position:-105px -28px}.b-share_theme_dark .b-share-form-button_share .b-share-form-button__icon{background-image:url("//yastatic.net/share/static/b-share-form-button_share__icon_dark.png")}.b-share_theme_dark .b-share-form-button{color:#fff!important;opacity:.8}.b-share_theme_dark .b-share__handle:hover .b-share-form-button,.b-share_theme_dark .b-share-form-button:hover{opacity:1;cursor:pointer}.b-share_theme_dark .b-share-form-button,.b-share_theme_dark .b-share-form-button__before,.b-share_theme_dark .b-share-form-button__after{background:0 0}.b-share_theme_dark .b-share-popup__i{background-color:#333;border-radius:10px;-webkit-box-shadow:0 2px 9px rgba(255,255,255,.6);-moz-box-shadow:0 2px 9px rgba(255,255,255,.6);box-shadow:0 2px 9px rgba(255,255,255,.6)}.b-share_theme_dark .b-share__text{color:#AAA}.b-share_theme_dark .b-share-popup{color:#AAA;border-radius:10px;background-color:#333;background-color:rgba(50,50,50,.3)}.b-share_theme_dark .b-share-popup__item{background:0 0;color:#ccc}.b-share_theme_dark .b-share-popup .b-share-popup__item__text{color:#ccc}.b-share_theme_counter .b-share{display:inline-block;vertical-align:middle;white-space:nowrap}.b-share-counter{font:14px Arial,sans-serif;line-height:18px;display:none;float:left;margin:3px 6px 3px 3px;color:#fff}.b-share_theme_counter .b-share_type_small .b-share-counter{font-size:11px;line-height:14px;margin:2px 6px 2px 1px}.b-share_theme_counter .b-share-btn__counter .b-share-counter{display:block}.b-share-btn__counter{text-decoration:none}.b-share_theme_counter .b-share-btn__wrap{position:relative;float:left;margin-left:5px}.b-share_theme_counter .b-share_type_small .b-share-btn__wrap{margin-left:4px}.b-share_theme_counter .b-share-btn__wrap:first-child{margin-left:0}.b-share_theme_counter .b-share__link{display:inline-block;cursor:pointer;-webkit-border-radius:3px;border-radius:3px}.b-share_theme_counter .b-share_type_small .b-share__link{-webkit-border-radius:2px;border-radius:2px}.b-share_theme_counter .b-share-icon{display:block;float:left;width:24px;height:24px;background-image:url("//yastatic.net/share/static/b-share_counter_large.png");background-position:-20px 0}.b-share_theme_counter .b-share_type_small .b-share-icon{width:18px;height:18px;background-image:url("//yastatic.net/share/static/b-share_counter_small.png")}.b-share_theme_counter .b-share-icon_facebook{background-position:0 0}.b-share_theme_counter .b-share-btn__facebook{background-color:#3c5a98}.b-share_theme_counter .b-share-btn__facebook:hover{background-color:#30487a}.b-share_theme_counter .b-share-btn__facebook:active{border-top:2px solid #24365a;background-color:#334d81}.b-share_theme_counter .b-share-icon_moimir{background-position:0 -29px}.b-share_theme_counter .b-share-btn__moimir{background-color:#226eb7}.b-share_theme_counter .b-share-btn__moimir:hover{background-color:#1b5892}.b-share_theme_counter .b-share-btn__moimir:active{border-top:2px solid #14426d;background-color:#1d5e9c}.b-share_theme_counter .b-share-icon_vkontakte{background-position:0 -58px}.b-share_theme_counter .b-share-btn__vkontakte{background-color:#48729e}.b-share_theme_counter .b-share-btn__vkontakte:hover{background-color:#3a5b7e}.b-share_theme_counter .b-share-btn__vkontakte:active{border-top:2px solid #2b445e;background-color:#3d6186}.b-share_theme_counter .b-share-icon_twitter{background-position:0 -87px}.b-share_theme_counter .b-share-btn__twitter{background-color:#00aced}.b-share_theme_counter .b-share-btn__twitter:hover{background-color:#008abe}.b-share_theme_counter .b-share-btn__twitter:active{border-top:2px solid #00668d;background-color:#0092ca}.b-share_theme_counter .b-share-icon_odnoklassniki{background-position:0 -116px}.b-share_theme_counter .b-share-btn__odnoklassniki{background-color:#ff9f4d}.b-share_theme_counter .b-share-btn__odnoklassniki:hover{background-color:#cc7f3e}.b-share_theme_counter .b-share-btn__odnoklassniki:active{border-top:2px solid #975e2e;background-color:#d98742}.b-share_theme_counter .b-share-icon_gplus{background-position:0 -145px}.b-share_theme_counter .b-share-btn__gplus{background-color:#c25234}.b-share_theme_counter .b-share-btn__gplus:hover{background-color:#9b422a}.b-share_theme_counter .b-share-btn__gplus:active{border-top:2px solid #73311f;background-color:#a5462c}.b-share_theme_counter .b-share-icon_yaru{background-position:0 -174px}.b-share_theme_counter .b-share-btn__yaru{background-color:#d83933}.b-share_theme_counter .b-share-btn__yaru:hover{background-color:#ad2e29}.b-share_theme_counter .b-share-btn__yaru:active{border-top:2px solid #80221e;background-color:#b8312b}.b-share_theme_counter .b-share-icon_pinterest{background-position:0 -203px}.b-share_theme_counter .b-share-btn__pinterest{background-color:#cd1e27}.b-share_theme_counter .b-share-btn__pinterest:hover{background-color:#a4181f}.b-share_theme_counter .b-share-btn__pinterest:active{border-top:2px solid #7b1217;background-color:#ae1921}.b-share_theme_counter .b-share__link:active{height:22px}.b-share_theme_counter .b-share_type_small .b-share__link:active{height:16px}.b-share_theme_counter .b-share__link:active .b-share-icon,.b-share_theme_counter .b-share__link:active .b-share-counter{position:relative;top:-1px}.b-share_theme_counter .b-share__link::after{position:absolute;top:0;right:0;bottom:0;left:0;content:"";background-image:url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)}.b-share_theme_counter .b-share__handle{height:auto;padding:0!important}</style></head>
+<body id="prog" class="vsc-initialized">
+
+<!-- Верхняя часть заголовка -->
+<script type="text/javascript" src="./Полный набор команд процессора 8086_files/header-top.js" charset="utf-8"></script><div id="main"><div id="header"><nofollow><div id="headerLeft"><table cellpadding="5px"><tbody><tr><td valign="top">
+<noscript>
+<div id="main">
+<div id="header">
+  <nofollow>
+	<div id="headerLeft">	
+  <table cellpadding="5px"><tr>
+    <td valign="top"> 
+</noscript> 
+   
+<!-- Блок книг --> 
+    <script type="text/javascript" src="./Полный набор команд процессора 8086_files/av-rotator.js" charset="utf-8"></script><a href="http://av-mag.ru/nip/lety.htm" rel="nofollow" target="_blank"><h1 style="color: blue;">Получи <b style="color:red;">200 рублей</b><br> на счёт за регистрацию</h1></a>
+    <noscript>
+    <a href="http://info-master.su/lp/prog-002.htm" rel="nofollow" target="_blank">
+    <img border="0" src="images/prog-3d-120.png" width="100" alt="Как стать программистом" title="Как стать программистом">
+    </a>
+    </td>
+    <td valign="top">
+    <a href="http://info-master.su/lp/prog-002.htm" rel="nofollow" target="_blank">Как стать программистом</a><br><br>
+    Как устроен компьютер. Что такое программа. Как написать свою программу. И многое другое узнаете вы из этой книги.<br><br>
+	  <a href="http://info-master.su/lp/prog-002.htm" rel="nofollow" target="_blank">Получить бесплатно!</a>
+    </noscript>
+<!-- Нижняя часть заголовка -->    
+    </td>
+  </tr></tbody></table>
+	</div>     <!-- headerLeft -->
+	</nofollow>
+	<div id="headerCenter"> 
+	
+	<script type="text/javascript" src="./Полный набор команд процессора 8086_files/header-main.js" charset="utf-8"></script><script type="text/javascript" src="./Полный набор команд процессора 8086_files/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yasharel10n="ru" data-yasharetype="none" data-yasharequickservices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug"><span class="b-share"><a rel="nofollow" target="_blank" title="ВКонтакте" class="b-share__handle b-share__link b-share-btn__vkontakte" href="https://share.yandex.net/go.xml?service=vkontakte&amp;url=http%3A%2F%2Fwww.avprog.narod.ru%2Fprogs%2Femu8086%2F8086_instruction_set.html&amp;title=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%208086" data-service="vkontakte"><span class="b-share-icon b-share-icon_vkontakte"></span></a><a rel="nofollow" target="_blank" title="Facebook" class="b-share__handle b-share__link b-share-btn__facebook" href="https://share.yandex.net/go.xml?service=facebook&amp;url=http%3A%2F%2Fwww.avprog.narod.ru%2Fprogs%2Femu8086%2F8086_instruction_set.html&amp;title=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%208086" data-service="facebook"><span class="b-share-icon b-share-icon_facebook"></span></a><a rel="nofollow" target="_blank" title="Twitter" class="b-share__handle b-share__link b-share-btn__twitter" href="https://share.yandex.net/go.xml?service=twitter&amp;url=http%3A%2F%2Fwww.avprog.narod.ru%2Fprogs%2Femu8086%2F8086_instruction_set.html&amp;title=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%208086" data-service="twitter"><span class="b-share-icon b-share-icon_twitter"></span></a><a rel="nofollow" target="_blank" title="Одноклассники" class="b-share__handle b-share__link b-share-btn__odnoklassniki" href="https://share.yandex.net/go.xml?service=odnoklassniki&amp;url=http%3A%2F%2Fwww.avprog.narod.ru%2Fprogs%2Femu8086%2F8086_instruction_set.html&amp;title=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%208086" data-service="odnoklassniki"><span class="b-share-icon b-share-icon_odnoklassniki"></span></a><a rel="nofollow" target="_blank" title="Мой Мир" class="b-share__handle b-share__link b-share-btn__moimir" href="https://share.yandex.net/go.xml?service=moimir&amp;url=http%3A%2F%2Fwww.avprog.narod.ru%2Fprogs%2Femu8086%2F8086_instruction_set.html&amp;title=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%208086" data-service="moimir"><span class="b-share-icon b-share-icon_moimir"></span></a><a rel="nofollow" target="_blank" title="LiveJournal" class="b-share__handle b-share__link b-share-btn__lj" href="https://share.yandex.net/go.xml?service=lj&amp;url=http%3A%2F%2Fwww.avprog.narod.ru%2Fprogs%2Femu8086%2F8086_instruction_set.html&amp;title=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%208086" data-service="lj"><span class="b-share-icon b-share-icon_lj"></span></a></span></div><br><script type="text/javascript">teasernet_blockid = 822696;teasernet_padid = 135143;</script><script type="text/javascript" src="http://xpicw.top/75/e/3/185902b.js"></script>
+	
+  </div>    <!-- headerCenter -->
+	<div class="clear"></div>
+	
+<!-- Верхнее меню -->
+	<script type="text/javascript" src="./Полный набор команд процессора 8086_files/menu-top.js" charset="utf-8"></script><div id="menuMain"><table id="menuMain"><tbody><tr><td class="home"><a href="http://avprog.narod.ru/">Главная</a></td><td class="money"><a href="http://avprog.narod.ru/get-money.htm">Деньги</a></td><td class="cars"><a href="http://avprog.narod.ru/cars.htm">Автомобили</a></td><td class="comp"><a href="http://avprog.narod.ru/comp.html">Компьютеры</a></td><td class="elektron"><a href="http://avprog.narod.ru/electronica.html">Электроника</a></td><td class="phone"><a href="http://avprog.narod.ru/telephony.html">Телефония</a></td><td class="stud"><a href="http://avprog.narod.ru/student.html">Образование</a></td><td class="auto"><a href="http://avprog.narod.ru/auto/auto.htm">Автоматизация</a></td><td class="prog"><a href="http://avprog.narod.ru/programm.html">Программирование</a></td></tr><tr><td class="soft"><a href="http://avprog.narod.ru/myprog.html">Программы</a></td><td class="project"><a href="http://avprog.narod.ru/myprojects.htm">Проекты</a></td><td class="books"><a href="http://avprog.narod.ru/books.htm">Книги</a></td><td class="links"><a href="http://avprog.narod.ru/ref.html">Ссылки</a></td><td><a href="http://av-inf.blogspot.ru/" rel="nofollow" target="_blank">Блог</a></td></tr></tbody></table></div>
+	<noscript>
+	<div id="menuMain">
+  <table id="menuMain"><tr>
+    <td class="home"><a href="http://avprog.narod.ru">Главная</a></td>
+    <td class="money"><a href="http://avprog.narod.ru/get-money.htm">Деньги</a></td>
+    <td class="cars"><a href="http://avprog.narod.ru/cars.htm">Автомобили</a></td>
+    <td class="comp"><a href="http://avprog.narod.ru/comp.html">Компьютеры</a></td>
+    <td class="elektron"><a href="http://avprog.narod.ru/electronica.html">Электроника</a></td> 
+    <td class="phone"><a href="http://avprog.narod.ru/telephony.html">Телефония</a></td>
+    <td class="stud"><a href="http://avprog.narod.ru/student.html">Образование</a></td>
+    <td class="auto"><a href="http://avprog.narod.ru/auto/auto.htm">Автоматизация</a></td>     
+    <td class="prog"><a href="http://avprog.narod.ru/programm.html">Программирование</a></td>
+    </tr><tr>
+    <td class="soft"><a href="http://avprog.narod.ru/myprog.html">Программы</a></td>
+    <td class="project"><a href="http://avprog.narod.ru/myprojects.htm">Проекты</a></td>
+    <td class="books"><a href="http://avprog.narod.ru/books.htm">Книги</a></td>
+    <td class="links"><a href="http://avprog.narod.ru/ref.html">Ссылки</a></td>
+    <td><a href="http://av-inf.blogspot.ru" rel="nofollow" target="_blank">Блог</a></td>  
+  </tr></table>
+  </div>    <!-- menuMain -->
+  </noscript>
+</div>      <!-- header -->
+
+<!-- Меню слева -->
+<script type="text/javascript" src="./Полный набор команд процессора 8086_files/menu-left-main.js" charset="utf-8"></script><div id="menu"><div id="menuTxt">
+<noscript>    
+<div id="menu">
+	<div id="menuTxt">
+</noscript> 	
+
+<!-- Реклама слева -->
+<script type="text/javascript" src="./Полный набор команд процессора 8086_files/rek-left-prog.js" charset="utf-8"></script><div id="podpiskaLeft"><a href="http://info-master.su/mail/prog/" rel="nofollow" target="_blank"><br><img border="0" src="./Полный набор команд процессора 8086_files/prog-3d.png" width="220" alt="Как стать программистом" title="Как стать программистом"></a><br><br>Как стать программистом - книга для начинающих<br><a href="http://info-master.su/mail/prog/" rel="nofollow" target="_blank">Получить БЕСПЛАТНО</a></div><div id="podpiskaLeft"><a href="http://info-master.su/mail/mk/" rel="nofollow" target="_blank"><br><img border="0" src="./Полный набор команд процессора 8086_files/mk-box-01.png" width="210" alt="Микроконтроллеры для ЧАЙНИКОВ" title="Микроконтроллеры для ЧАЙНИКОВ"></a><br><br>Микроконтроллеры для ЧАЙНИКОВ<br><a href="http://info-master.su/mail/mk/" rel="nofollow" target="_blank">Изучать БЕСПЛАТНО</a></div></div></div>
+<noscript> 	
+    <div id="podpiskaLeft">
+    <a href="http://info-master.su/programming/kurs/bp-base.php" rel="nofollow" target="_blank"><br>
+    <img border="0" src="http://info-master.su/programming/images/base-programming-3d.png" width="210" alt="ОСНОВЫ ПРОГРАММИРОВАНИЯ" title="ОСНОВЫ ПРОГРАММИРОВАНИЯ">  
+    </a><br><br>
+  	Как стать программистом с нуля до создания своих программ?
+    <br><br>
+    <a href="http://info-master.su/programming/kurs/bp-base.php">УЗНАТЬ!</a>
+    </div>                <!-- podpiskaLeft -->
+  </div>                  <!-- menuTxt -->
+</div>                    <!-- menu -->
+</noscript>
+
+<!-- Новости и реклама справа -->
+<div id="news">         
+	<div id="newsTxt"><br>  
+  <script type="text/javascript" src="./Полный набор команд процессора 8086_files/rek-right-prog.js" charset="utf-8"></script><a href="http://av-mag.ru/user-comp/index.htm" rel="nofollow" target="_blank"><br><img border="0" src="./Полный набор команд процессора 8086_files/user-150x600.png" width="140" alt="Компьютер для чайника" title="Компьютер для чайника"></a><br><br><script type="text/javascript">teasernet_blockid = 515390;teasernet_padid = 135143;</script><script type="text/javascript" src="./Полный набор команд процессора 8086_files/2b2f7d.js"></script>  
+	<br>
+  </div>       <!-- newsTxt -->
+</div>         <!-- news -->
+<div id="cont">
+<div id="contTxt">
+
+<!--Текст страницы-->
+<h1>Полный набор команд процессора 8086</h1>
+
+<p>
+<table cellpadding="10">
+<tbody><tr><td valign="TOP"><a href="http://www.avprog.narod.ru/progs/emu8086/help.html" rel="nofollow" target="_blank">
+		<img border="0" src="./Полный набор команд процессора 8086_files/ie.bmp"></a></td>
+    <td>
+    <a href="http://www.avprog.narod.ru/progs/emu8086/help.html">
+    <u>Скачать бесплатно справочную систему для emu8086 на русском языке</u></a><br>
+    </td></tr>
+</tbody></table>
+</p><br>
+
+<hr>
+<br>
+Быстрые ссылки:<br><br>
+<font face="Fixedsys">
+
+<table border="0" width="100%">
+<tbody><tr>
+
+<td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#AAA">AAA</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#AAD">AAD</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#AAM">AAM</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#AAS">AAS</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#ADC">ADC</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#ADD">ADD</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#AND">AND</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CALL">CALL</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CBW">CBW</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CLC">CLC</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CLD">CLD</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CLI">CLI</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CMC">CMC</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CMP">CMP</a>  <br>
+</td><td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CMPSB">CMPSB</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CMPSW">CMPSW</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#CWD">CWD</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#DAA">DAA</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#DAS">DAS</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#DEC">DEC</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#DIV">DIV</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#HLT">HLT</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#IDIV">IDIV</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#IMUL">IMUL</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#IN">IN</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#INC">INC</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#INT">INT</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#INTO">INTO</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#IRET">IRET</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JA">JA</a>  <br>
+</td><td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JAE">JAE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JB">JB</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JBE">JBE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JC">JC</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JCXZ">JCXZ</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JE">JE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JG">JG</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JGE">JGE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JL">JL</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JLE">JLE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JMP">JMP</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNA">JNA</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNAE">JNAE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNB">JNB</a>  <br>
+</td><td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNBE">JNBE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNC">JNC</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNE">JNE</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNG">JNG</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNGE">JNGE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNL">JNL</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNLE">JNLE</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNO">JNO</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNP">JNP</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNS">JNS</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JNZ">JNZ</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JO">JO</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JP">JP</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JPE">JPE</a>  <br>
+</td><td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JPO">JPO</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JS">JS</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#JZ">JZ</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LAHF">LAHF</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LDS">LDS</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LEA">LEA</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LES">LES</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LODSB">LODSB</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LODSW">LODSW</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LOOP">LOOP</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LOOPE">LOOPE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LOOPNE">LOOPNE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LOOPNZ">LOOPNZ</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#LOOPZ">LOOPZ</a>  <br>
+</td><td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#MOV">MOV</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#MOVSB">MOVSB</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#MOVSW">MOVSW</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#MUL">MUL</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#NEG">NEG</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#NOP">NOP</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#NOT">NOT</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#OR">OR</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#OUT">OUT</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#POP">POP</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#POPA">POPA</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#POPF">POPF</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#PUSH">PUSH</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#PUSHA">PUSHA</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#PUSHF">PUSHF</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#RCL">RCL</a>  <br>
+
+</td><td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#RCR">RCR</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#REP">REP</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#REPE">REPE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#REPNE">REPNE</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#REPNZ">REPNZ</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#REPZ">REPZ</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#RET">RET</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#RETF">RETF</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#ROL">ROL</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#ROR">ROR</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SAHF">SAHF</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SAL">SAL</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SAR">SAR</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SBB">SBB</a>  <br>
+</td><td>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SCASB">SCASB</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SCASW">SCASW</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SHL">SHL</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SHR">SHR</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#STC">STC</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#STD">STD</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#STI">STI</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#STOSB">STOSB</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#STOSW">STOSW</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#SUB">SUB</a>  <br>
+
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#TEST">TEST</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#XCHG">XCHG</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#XLATB">XLATB</a>  <br>
+<a href="http://www.avprog.narod.ru/progs/emu8086/8086_instruction_set.html#XOR">XOR</a>  <br>
+</td>
+</tr>
+</tbody></table>
+
+</font>
+
+<br><br>
+
+<hr>
+
+
+Типы операндов:<br><br>
+
+<b>REG</b>: AX, BX, CX, DX, AH, AL, BL, BH, CH, CL, DH, DL, DI, SI, BP, SP.<br><br>
+
+<b>SREG</b>: DS, ES, SS, и только как второй операнд: CS.<br><br>
+
+<b>memory</b>: [BX], [BX+SI+7], переменная и т.п...(см. <a href="http://www.avprog.narod.ru/progs/emu8086/asm_tutorial_02.html"><b>Доступ к памяти</b></a>).<br><br>
+
+<b>immediate</b>: 5, -24, 3Fh, 10001101b, и т.п...<br><br>
+
+<hr>
+
+<br>
+Примечания:<br><br>
+<ul>
+<li>Если для команды требуются два операнда, то они разделяются запятой. Например:<br><br>
+	<font face="Fixedsys">
+	REG, memory
+	</font>
+
+	<br><br></li>
+<li>Если это два операнда, то они должны иметь одинаковый размер
+(кроме команд сдвига и циклического сдвига). Например:<br><br>
+    <font face="Fixedsys">
+	AL, DL<br>
+	DX, AX<br>
+	<font color="#005555">
+	m1 DB ?<br>
+
+	</font>
+	AL, m1<br>
+	<font color="#005555">
+	m2 DW ?<br>
+	</font>
+	AX, m2
+	</font>
+	<br><br>
+
+    </li>
+	<li>Некоторые команды допускают несколько комбинаций операндов.
+	Например:<br><br>
+	<font face="Fixedsys">
+		memory, immediate<br>
+		REG, immediate<br><br>
+		memory, REG<br>
+		REG, SREG
+	</font><br><br>
+
+	</li>
+
+ <li>Некоторые примеры содержат макросы, поэтому желательно
+ использовать "горячую клавишу" <nobr><b>Shift + F8</b></nobr>, чтобы
+ <b>Пропустить шаг</b> (чтобы выполнить код макроса с максимальной
+ скоростью, установите <b>step delay - задержку между выполнением команд</b>
+ на ноль), иначе эмулятор будет выполнять каждую команду макроса. Ниже приведен
+ пример, который использует макрос PRINTN:
+ <pre> <font face="Fixedsys">
+
+   #make_COM#
+   include 'emu8086.inc'
+   ORG 100h
+   MOV AL, 1
+   MOV BL, 2
+   PRINTN 'Hello World!'   ; макрос.
+   MOV CL, 3
+   PRINTN 'Welcome!'       ; макрос.
+   RET</font></pre>
+ </li>
+
+</ul>
+<br>
+
+<hr>
+<br><br>
+Эти знаки используются для отображения состояния флагов:<br><br>
+<b>1</b> - команда устанавливает этот флаг в <b>1</b>.<br>
+
+<b>0</b> - команда устанавливает этот флаг в <b>0</b>.<br>
+<b>r</b> - значение флага зависит от результата выполнения команды.<br>
+<b>?</b> - значение флага не определено (может быть <b>1</b> или <b>0</b>).<br>
+
+<br><br>
+
+<hr>
+
+<br><br><b>
+Некоторые команды генерируются в абсолютно одинаковый машинный код,
+поэтому дизассемблер может иметь проблемы при декодировании вашего
+оригинального кода. Это особенно важно в командах условного перехода
+(см. "<a href="http://www.avprog.narod.ru/progs/emu8086/asm_tutorial_07.html">Управление ходом программы</a>").</b>
+<br><br><br>
+<hr>
+
+<br><br>
+Команды в алфавитном порядке:
+
+<br><br>
+
+<table bgcolor="#C5C6E9">
+
+<tbody><tr bgcolor="#FFFFFF">
+<td>Команда</td> <td>Операнды</td> <td>Описание
+			<a name="AAA">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+
+AAA
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Коррекция ASCII-формата после сложения.<br>
+Корректирует результат в регистрах AH и AL после сложения
+при работе с BCD-значениями. <br><br> Она работает согласно следующему алгоритму<br><br>
+<font face="Fixedsys">
+Если младшие (правые) четыре бита<br> регистра AL &gt; 9 или флаг AF = 1, то:<br>
+
+<ul>
+<li>AL = AL + 6</li>
+<li>AH = AH + 1</li>
+<li>AF = 1</li>
+<li>CF = 1</li>
+</ul>
+иначе
+<ul>
+<li>AF = 0</li>
+<li>CF = 0</li>
+</ul>
+
+в любом случае:<br>
+очистить старшие четыре бита регистра AL.
+</font>
+<br><br>Пример:<pre><font face="Fixedsys">MOV AX, 15   ; AH = 00, AL = 0Fh
+AAA          ; AH = 01, AL = 05
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>?</td> <td>?</td> <td>?</td> <td>?</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+			<a name="AAD">&nbsp;</a>
+
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+AAD
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Коррекция ASCII-формата перед делением.<br>
+
+Подготавливает два BCD-значения для деления. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>AL = (AH * 10) + AL</li>
+<li>AH = 0</li>
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AX, 0105h   ; AH = 01, AL = 05
+AAD             ; AH = 00, AL = 0Fh (15)
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>?</td> <td>r</td> <td>r</td> <td>?</td> <td>r</td> <td>?</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="AAM">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+AAM
+</font>
+</td>
+
+<td>Нет операндов</td>
+<td>
+Коррекция ASCII-формата после умножения.<br>
+Корректирует результат умножения двух BCD-значений. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>AH = AL / 10</li>
+<li>AL = остаток</li>
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AL, 15   ; AL = 0Fh
+AAM          ; AH = 01, AL = 05
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>?</td> <td>r</td> <td>r</td> <td>?</td> <td>r</td> <td>?</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="AAS">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+AAS
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Коррекция ASCII-формата после вычитания.<br>
+Корректирует результат в регистрах AH и AL после вычитания при
+работе с BCD-значениями. <br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+если младшие четыре бита<br>
+регистра AL &gt; 9 или AF = 1, то:<br>
+<ul>
+<li>AL = AL - 6</li>
+<li>AH = AH - 1</li>
+<li>AF = 1</li>
+
+<li>CF = 1</li>
+</ul>
+иначе
+<ul>
+<li>AF = 0</li>
+<li>CF = 0</li>
+</ul>
+в любом случае:<br>
+очистить старшие четыре бита регистра AL.
+</font>
+<br><br>Пример:<pre><font face="Fixedsys">MOV AX, 02FFh  ; AH = 02, AL = 0FFh
+AAS            ; AH = 01, AL = 09
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>?</td> <td>?</td> <td>?</td> <td>?</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="ADC">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+ADC
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+
+<td>
+
+Сложение с переносом.<br>
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+operand1 = operand1 + operand2 + CF
+</font>
+<br><br>Пример:<pre><font face="Fixedsys">STC        ; установить CF = 1
+MOV AL, 5  ; AL = 5
+ADC AL, 1  ; AL = 7
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="ADD">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+ADD
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+
+<td>
+
+Сложение.<br>
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+operand1 = operand1 + operand2
+</font>
+<br><br>Пример:<pre><font face="Fixedsys">MOV AL, 5   ; AL = 5
+ADD AL, -3  ; AL = 2
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="AND">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+AND
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+
+<td>
+
+Логическое И между всеми битами двух операндов. Результат записывается в 1-й операнд.<br><br>
+Действуют следующие правила:<br><br>
+<font face="Fixedsys">
+1 AND 1 = 1<br>
+1 AND 0 = 0<br>
+0 AND 1 = 0<br>
+0 AND 0 = 0<br>
+</font>
+<br><br>Пример:<pre><font face="Fixedsys">MOV AL, 'a'        ; AL = 01100001b
+AND AL, 11011111b  ; AL = 01000001b  ('A')
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>0</td> <td>r</td> <td>r</td> <td>0</td> <td>r</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="CALL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CALL
+</font>
+</td>
+
+<td>
+<font face="Fixedsys">
+	<nobr>
+	имя процедуры<br>
+	метк<br>
+	4-х байтовый адрес<br>
+	</nobr>
+</font>
+</td>
+
+<td>
+Передает управление процедуре, заносит в стек адрес следующей команды (из IP).
+<b>4-х байтовый адрес</b> может быть введен в следующей форме:
+<font face="Fixedsys">1234h:5678h</font>, первое значение - сегмент,
+второе значение - смещение (в случае дальнего вызова регистр CS также
+заносится в стек).<br>
+<br><br>Пример:<pre><font face="Fixedsys">#make_COM#
+ORG 100h  ; для СОМ-файла.
+
+CALL p1
+
+ADD AX, 1
+
+RET         ; вернуться в операционную систему.
+
+p1 PROC     ; объявление процедуры.
+    MOV AX, 1234h
+    RET     ; возвращение в программу.
+p1 ENDP</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CBW">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+CBW
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Преобразует байт в слово. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+Если старший бит AL = 1, то:
+<ul>
+<li>AH = 255 (0FFh)</li>
+</ul>
+
+<br>
+иначе
+<ul>
+<li>AH = 0</li>
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AX, 0   ; AH = 0, AL = 0
+MOV AL, -5  ; AX = 000FBh (251)
+CBW         ; AX = 0FFFBh (-5)
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CLC">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+CLC
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Очищает флаг переноса (CF). <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+CF = 0
+</font>
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>0</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CLD">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CLD
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Очищает флаг направления (DF).
+Clear Direction flag. Значения регистров SI и DI будут увеличиваться
+командами: CMPSB, CMPSW, LODSB, LODSW, MOVSB, MOVSW, STOSB, STOSW. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+
+DF = 0
+</font>
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>D</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>0</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CLI">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CLI
+</font>
+</td>
+<td>Нет операндов</td>
+
+<td>
+Очищает флаг прерывания (IF). Это отключает аппаратные прерывания.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+IF = 0
+</font>
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>I</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>0</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="CMC">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CMC
+</font>
+</td>
+
+<td>Нет операндов</td>
+<td>
+Переключает флаг переноса, т.е. инвертирует значение CF. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+если CF = 1 то CF = 0<br>
+если CF = 0 то CF = 1<br>
+</font>
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CMP">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CMP
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Сравнение.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+
+operand1 - operand2
+<br><br>
+результат никуда не записывается, флаги устанавливаются (OF, SF, ZF, AF, PF, CF)
+в соответствии с результатом.
+</font>
+<br><br>Пример:<pre><font face="Fixedsys">MOV AL, 5
+MOV BL, 5
+CMP AL, BL  ; AL = 5, ZF = 1 (значит равно!)
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CMPSB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CMPSB
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Сравнивает байты: <nobr>ES:[DI] из DS:[SI].</nobr> <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>DS:[SI] - ES:[DI]<br></li>
+<li>установить флаги в соответствии с результатом:<br> OF, SF, ZF, AF, PF, CF<br></li>
+<li>если DF = 0 то
+	<ul>
+	<li>SI = SI + 1</li>
+
+	<li>DI = DI + 1</li>
+	</ul>
+	иначе
+	<ul>
+	<li>SI = SI - 1</li>
+	<li>DI = DI - 1</li>
+	</ul>
+</li>
+
+</ul>
+</font>
+Пример:<br>
+см. <b><a href="http://www.avprog.narod.ru/progs/Samples/cmpsb.asm">cmpsb.asm</a></b> в каталоге Samples.
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CMPSW">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CMPSW
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Сравнивает слова: <nobr>ES:[DI] из DS:[SI].</nobr> <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>DS:[SI] - ES:[DI]<br></li>
+<li>установить флаги в соответствии с результатом:<br> OF, SF, ZF, AF, PF, CF<br></li>
+<li>если DF = 0 то
+	<ul>
+	<li>SI = SI + 2</li>
+
+	<li>DI = DI + 2</li>
+	</ul>
+	иначе
+	<ul>
+	<li>SI = SI - 2</li>
+	<li>DI = DI - 2</li>
+	</ul>
+</li>
+
+</ul>
+</font>
+Пример:<br>
+см. <b><a href="http://www.avprog.narod.ru/progs/Samples/cmpsw.asm">cmpsw.asm</a></b> в каталоге Samples.
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="CWD">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+CWD
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Преобразует слово в двойное слово. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+если старший бит AX = 1, то:
+<ul>
+<li>DX = 65535 (0FFFFh)</li>
+</ul>
+<br>
+иначе
+<ul>
+<li>DX = 0</li>
+</ul>
+</font>
+
+<br>Пример:<pre><font face="Fixedsys">MOV DX, 0   ; DX = 0
+MOV AX, 0   ; AX = 0
+MOV AX, -5  ; DX AX = 00000h:0FFFBh
+CWD         ; DX AX = 0FFFFh:0FFFBh
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="DAA">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+DAA
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Десятичная коррекция после сложения.<br>
+Корректирует результат сложения двух упакованных BCD-значений. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+если младшие четыре бита AL &gt; 9 или AF = 1, то:<br>
+<ul>
+<li>AL = AL + 6</li>
+
+<li>AF = 1</li>
+</ul>
+если AL &gt; 9Fh или CF = 1, то:
+<ul>
+<li>AL = AL + 60h</li>
+<li>CF = 1</li>
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AL, 0Fh  ; AL = 0Fh (15)
+DAA          ; AL = 15h
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="DAS">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+DAS
+</font>
+</td>
+
+<td>Нет операндов</td>
+<td>
+Десятичная коррекция после вычитания.<br>
+Корректирует результат вычитания двух упакованных BCD-значений. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+если младшие четыре бита AL &gt; 9 или AF = 1, то:<br>
+<ul>
+<li>AL = AL - 6</li>
+<li>AF = 1</li>
+</ul>
+
+если AL &gt; 9Fh или CF = 1, то:
+<ul>
+<li>AL = AL - 60h</li>
+<li>CF = 1</li>
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AL, 0FFh  ; AL = 0FFh (-1)
+DAS           ; AL = 99h, CF = 1
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="DEC">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+DEC
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Декремент.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+operand = operand - 1
+
+<br><br>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AL, 255  ; AL = 0FFh (255 или -1)
+DEC AL       ; AL = 0FEh (254 или -2)
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+CF - не изменяется!
+</font>
+
+			<a name="DIV">&nbsp;</a>
+
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+DIV
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Беззнаковое деление.
+<br><br>Алгоритм:<br><br>
+ <blockquote>
+	 если операнд - это <b>байт</b>:<br>
+
+	 <font face="Fixedsys">AL = AX / операнд<br>
+	 AH = остаток (модуль)
+	 </font>
+ </blockquote>
+
+ <blockquote>
+	если операнд - это <b>слово</b>:<br>
+	<font face="Fixedsys">AX = (DX AX) / операнд<br>
+
+	DX = остаток (модуль)
+	</font>
+ </blockquote>
+ Пример:<pre><font face="Fixedsys">MOV AX, 203   ; AX = 00CBh
+MOV BL, 4
+DIV BL        ; AL = 50 (32h), AH = 3
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>?</td> <td>?</td> <td>?</td> <td>?</td> <td>?</td> <td>?</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="HLT">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+HLT
+</font>
+</td>
+<td>Нет операндов</td>
+
+<td>
+
+Останов системы.<br><br>
+
+ Пример:<pre><font face="Fixedsys">MOV AX, 5
+HLT</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">unchanged</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="IDIV">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+
+<td>
+<font face="Fixedsys">
+IDIV
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+
+</font>
+</td>
+<td>
+
+Знаковое деление.
+<br><br>Алгоритм:<br><br>
+ <blockquote>
+	 если операнд - это <b>байт</b>:<br>
+	 <font face="Fixedsys">AL = AX / операнд<br>
+
+	 AH = остаток (модуль)
+	 </font>
+ </blockquote>
+
+ <blockquote>
+	если операнд - это <b>слово</b>:<br>
+	<font face="Fixedsys">AX = (DX AX) / операнд<br>
+	DX = остаток (модуль)
+	</font>
+
+ </blockquote>
+ Пример:<pre><font face="Fixedsys">MOV AX, -203 ; AX = 0FF35h
+MOV BL, 4
+IDIV BL      ; AL = -50 (0CEh), AH = -3 (0FDh)
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>?</td> <td>?</td> <td>?</td> <td>?</td> <td>?</td> <td>?</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="IMUL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+IMUL
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Знаковое умножение.
+<br><br>Алгоритм:<br><br>
+ <blockquote>
+
+	 если операнд - это <b>байт</b>:<br>
+	 <font face="Fixedsys">AX = AL * операнд</font>.
+ </blockquote>
+
+ <blockquote>
+	если операнд - это <b>слово</b>:<br>
+
+	<font face="Fixedsys">(DX AX) = AX * операнд</font>.
+ </blockquote>
+  Пример:<pre><font face="Fixedsys">MOV AL, -2
+MOV BL, -4
+IMUL BL      ; AX = 8
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>?</td> <td>?</td> <td>r</td> <td>?</td> <td>?</td> </tr>
+</tbody></table>
+CF=OF=0 если результат вписывается в операнд IMUL.
+</font>
+
+ 			<a name="IN">&nbsp;</a>
+</td>
+</tr>
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+IN
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+
+	AL, im.byte<br>
+	AL, DX<br>
+	AX, im.byte<br>
+	AX, DX
+	</nobr>
+</font>
+</td>
+<td>
+
+Помещает данные из порта в <b>AL</b> или <b>AX</b>.<br>
+
+Второй операнд - это номер порта. Если требуется доступ к порту с номером
+более 255, то нужно использовать регистр <b>DX</b>.
+<br>Пример:<pre><font face="Fixedsys">IN AX, 4  ; получить состояние светофора.
+IN AL, 7  ; получить состояние шагового дигателя.
+</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="INC">&nbsp;</a>
+</td>
+</tr>
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+INC
+
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+
+Инкремент.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+operand = operand + 1
+<br>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AL, 4
+INC AL       ; AL = 5
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+CF - не изменяется!
+</font>
+
+			<a name="INT">&nbsp;</a>
+
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+INT
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>immediate byte</nobr>
+
+</font>
+</td>
+<td>
+
+Выполняет прерывание программы и передает управление функции, указанной
+в immediate byte (0..255).
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	Поместить в стек:
+	<ul>
+	<li>флаговый регистр</li>
+	<li>CS</li>
+
+	<li>IP</li>
+	</ul>
+
+	<li>IF = 0</li>
+
+	<li>Передать управление процедуре прерывания</li>
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">MOV AH, 0Eh  ; телетайп.
+MOV AL, 'A'
+INT 10h      ; Прерывание BIOS.
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> <td>I</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> <td>0</td></tr>
+</tbody></table>
+</font>
+
+			<a name="INTO">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+INTO
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Приводит к прерыванию при возникновении переполнения (флаг OF = 1) и
+выполняет команду IRET 4.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+если OF = 1 то INT 4
+<br>
+</font>
+<br>Пример:<pre><font face="Fixedsys">; -5 - 127 = -132 (за пределами диапазона -128..127)
+; результат вычитания (SUB) неправильный (124),
+; поэтому OF = 1:
+MOV AL, -5
+SUB AL, 127   ; AL = 7Ch (124)
+INTO          ; ошибка процесса.
+RET</font></pre>
+
+			<a name="IRET">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+IRET
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Возврат из обработки прерывания.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	Выгрузить из стека:
+	<ul>
+	<li>IP</li>
+	<li>CS</li>
+	<li>регистр флагов</li>
+
+	</ul>
+</ul>
+</font>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6"><center>выгруженные</center></td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JA">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JA
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход по "выше" или "не ниже или равно".
+Используется после проверки беззнаковых данных для передачи управления
+по другому адресу.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если (CF = 0) и (ZF = 0) то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 250
+   CMP AL, 5
+   JA label1
+   PRINT 'AL не больше 5'
+   JMP exit
+label1:
+   PRINT 'AL больше 5'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JAE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JAE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд "больше или равен" второму операнду.
+(в результате выполнения команды CMP). Беззнаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если CF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JAE label1
+   PRINT 'AL не больше 5'
+   JMP exit
+label1:
+   PRINT 'AL больше или равен 5'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JB
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд "меньше" второго операнда
+(в результате выполнения команды CMP). Беззнаковый.
+<br><br>Algorithm:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если CF = 1 то выполниь переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 1
+   CMP AL, 5
+   JB  label1
+   PRINT 'AL не меньше 5'
+   JMP exit
+label1:
+   PRINT 'AL меньше 5'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JBE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JBE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд "меньше" или "равен" второму операнду
+(в результате выполнения команды CMP). Беззнаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если CF = 1 или ZF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JBE  label1
+   PRINT 'AL не меньше 5'
+   JMP exit
+label1:
+   PRINT 'AL меньше или равен 5'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JC">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JC
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход если флаг переноса установлен в 1.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если CF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 255
+   ADD AL, 1
+   JC  label1
+   PRINT 'нет переноса.'
+   JMP exit
+label1:
+   PRINT 'имеем перенос.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JCXZ">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JCXZ
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если регистр СХ равен 0.
+<br><br>Algorithm:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если CX = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV CX, 0
+   JCXZ label1
+   PRINT 'CX не равен нулю.'
+   JMP exit
+label1:
+   PRINT 'CX равен нулю.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд равен второму операнду
+(в результате выполнения команды CMP). Знаковый/Беззнаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если ZF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JE  label1
+   PRINT 'AL не равен 5.'
+   JMP exit
+label1:
+   PRINT 'AL равен 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JG">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JG
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд больше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если (ZF = 0) и (SF = OF) то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, -5
+   JG  label1
+   PRINT 'AL не больше -5.'
+   JMP exit
+label1:
+   PRINT 'AL больше -5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JGE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JGE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд больше или равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если SF = OF то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -5
+   JGE  label1
+   PRINT 'AL &lt; -5'
+   JMP exit
+label1:
+   PRINT 'AL &gt;= -5'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JL
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд меньше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если SF &lt;&gt; OF то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, -2
+   CMP AL, 5
+   JL  label1
+   PRINT 'AL &gt;= 5.'
+   JMP exit
+label1:
+   PRINT 'AL &lt; 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JLE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JLE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд меньше или равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если SF &lt;&gt; OF или ZF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, -2
+   CMP AL, 5
+   JLE label1
+   PRINT 'AL &gt; 5.'
+   JMP exit
+label1:
+   PRINT 'AL &lt;= 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JMP">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JMP
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	метка<br>
+	4-х байтовый адрес<br>
+	</nobr>
+</font>
+
+</td>
+<td>
+
+Безусловный переход.
+Передает управление другому участку программы.
+<b>4-х байтовый адрес</b> может быть введен в такой форме:
+<font face="Fixedsys">1234h:5678h</font>, первое значение - сегмент,
+второе значение - смещение.<br>
+
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	выполнить переход в любом случае
+
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   JMP label1    ; "перешагнуть" через две строки!
+   PRINT 'Нет перехода!'
+   MOV AL, 0
+label1:
+   PRINT 'Добрались сюда!'
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNA">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNA
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не больше второго операнда
+(в результате выполнения команды CMP). Беззнаковый.
+<br><br>Алгоритм:<br><br>
+
+<font face="Fixedsys">
+
+<ul>
+	если CF = 1 или ZF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 5
+   JNA label1
+   PRINT 'AL больше 5.'
+   JMP exit
+label1:
+   PRINT 'AL не больше 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNAE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNAE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не больше и не равен второму операнду
+(в результате выполнения команды CMP). Беззнаковый.
+<br><br>Алгоритм:<br><br>
+
+<font face="Fixedsys">
+
+<ul>
+	если CF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 5
+   JNAE label1
+   PRINT 'AL &gt;= 5.'
+   JMP exit
+label1:
+   PRINT 'AL &lt; 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNB
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не меньше второго операнда
+(в результате выполнения команды CMP). Беззнаковый.
+<br><br>Алгоритм:<br><br>
+
+<font face="Fixedsys">
+
+<ul>
+	если CF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 7
+   CMP AL, 5
+   JNB label1
+   PRINT 'AL &lt; 5.'
+   JMP exit
+label1:
+   PRINT 'AL &gt;= 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNBE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNBE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не меньше и не равен второму операнду
+(в результате выполнения команды CMP). Беззнаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если (CF = 0) и (ZF = 0) то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 7
+   CMP AL, 5
+   JNBE label1
+   PRINT 'AL &lt;= 5.'
+   JMP exit
+label1:
+   PRINT 'AL &gt; 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNC">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNC
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если флаг переноса установлен в ноль.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если CF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   ADD AL, 3
+   JNC  label1
+   PRINT 'имеем перенос.'
+   JMP exit
+label1:
+   PRINT 'нет переноса.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не равен второму операнду
+(в результате выполнения команды CMP). Знаковый/Беззнаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если ZF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNE  label1
+   PRINT 'AL = 3.'
+   JMP exit
+label1:
+   PRINT 'Al &lt;&gt; 3.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNG">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNG
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не больше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если (ZF = 1) и (SF &lt;&gt; OF) то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNG  label1
+   PRINT 'AL &gt; 3.'
+   JMP exit
+label1:
+   PRINT 'Al &lt;= 3.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNGE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNGE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не больше и не равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если SF &lt;&gt; OF то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, 3
+   JNGE  label1
+   PRINT 'AL &gt;= 3.'
+   JMP exit
+label1:
+   PRINT 'Al &lt; 3.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNL
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не меньше второго операнда
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если SF = OF то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -3
+   JNL label1
+   PRINT 'AL &lt; -3.'
+   JMP exit
+label1:
+   PRINT 'Al &gt;= -3.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNLE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNLE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если первый операнд не меньше и не равен второму операнду
+(в результате выполнения команды CMP). Знаковый.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если (SF = OF) и (ZF = 0) то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 2
+   CMP AL, -3
+   JNLE label1
+   PRINT 'AL &lt;= -3.'
+   JMP exit
+label1:
+   PRINT 'Al &gt; -3.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNO">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNO
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если нет переполнения.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если OF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">; -5 - 2 = -7 (в пределах -128..127)
+; результат команды SUB (вычитание) правильный,
+; поэтому OF = 0:
+
+include 'emu8086.inc'
+#make_COM#
+ORG 100h
+  MOV AL, -5
+  SUB AL, 2   ; AL = 0F9h (-7)
+JNO  label1
+  PRINT 'переполнение!'
+JMP exit
+label1:
+  PRINT 'нет переполнения.'
+exit:
+  RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяется</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNP">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNP
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если нет паритета, или паритет нечетный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если PF = 0 то выполнить переход
+</ul>
+</font>
+Example:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов.
+   JNP label1
+   PRINT 'паритет четный.'
+   JMP exit
+label1:
+   PRINT 'паритет нечетный.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNS">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNS
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если нет знака (если положительный).
+Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если SF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов.
+   JNS label1
+   PRINT 'есть знак.'
+   JMP exit
+label1:
+   PRINT 'нет знака.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JNZ">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JNZ
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если "не ноль".
+Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если ZF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов
+   JNZ label1
+   PRINT 'ноль.'
+   JMP exit
+label1:
+   PRINT 'не ноль.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JO">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JO
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход по переполнению.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если OF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">; -5 - 127 = -132 (вне диапазона -128..127)
+; результат вычитания неправильный (124),
+; поэтому OF = 1:
+
+include 'emu8086.inc'
+#make_COM#
+org 100h
+  MOV AL, -5
+  SUB AL, 127   ; AL = 7Ch (124)
+JO  label1
+  PRINT 'нет переполнения.'
+JMP exit
+label1:
+  PRINT 'переполнение!'
+exit:
+  RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JP">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JP
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если есть паритет или паритет четный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если PF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000101b   ; AL = 5
+   OR  AL, 0           ; только установка флагов.
+   JP label1
+   PRINT 'паритет нечетный.'
+   JMP exit
+label1:
+   PRINT 'паритет четный.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JPE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JPE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если есть паритет или паритет четный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если PF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000101b   ; AL = 5
+   OR  AL, 0           ; только установка флагов.
+   JPE label1
+   PRINT 'паритет нечетный.'
+   JMP exit
+label1:
+   PRINT 'паритет четный.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JPO">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JPO
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход, если нет паритета, или паритет нечетный. Проверяются
+только младшие 8 битов результата. Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если PF = 0 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 00000111b   ; AL = 7
+   OR  AL, 0           ; только установка флагов.
+   JPO label1
+   PRINT 'паритет четный.'
+   JMP exit
+label1:
+   PRINT 'паритет нечетный.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JS">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JS
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Переход по знаку (если отрицательный). Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если SF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 10000000b   ; AL = -128
+   OR  AL, 0           ; только установка флагов.
+   JS label1
+   PRINT 'нет знака.'
+   JMP exit
+label1:
+   PRINT 'есть знак.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="JZ">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+JZ
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Короткий переход по "нулю".
+Устанавливается командами CMP, SUB, ADD, TEST, AND, OR, XOR.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	если ZF = 1 то выполнить переход
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AL, 5
+   CMP AL, 5
+   JZ  label1
+   PRINT 'AL не равно 5.'
+   JMP exit
+label1:
+   PRINT 'AL равно 5.'
+exit:
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="LAHF">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+LAHF
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Загрузка младших 8 байтов регистра флагов в регистр АН.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	AH = флаговому регистру<br>
+</ul>
+<pre><font face="Fixedsys">
+
+Биты AH:  7    6   5    4   3    2   1    0
+        [SF] [ZF] [0] [AF] [0] [PF] [1] [CF]</font>
+</pre>
+биты 1, 3, 5 зарезервированы.
+</font>
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="LDS">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+LDS
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory
+	</nobr>
+</font>
+</td>
+<td>
+Загружает в необходимые регистры четыре байта памяти (двойное слово), содержащей
+относительный адрес и сегментный адрес. Сегментный адрес помещается
+в регистр DS, а относительный адрес (смещение) - в любой из общих
+или индексных регистров или в регистровый указатель.
+<br><br>Алгоритм:<br><br>
+
+<font face="Fixedsys">
+<ul>
+    <li>REG = первое слово</li>
+	<li>DS = второе слово</li>
+</ul>
+</font>
+<br>
+Пример:
+<pre><font face="Fixedsys">
+#make_COM#
+ORG 100h
+
+LDS AX, m
+
+RET
+
+m  DW  1234h
+   DW  5678h
+
+END
+</font>
+</pre>
+
+В AX записано значение 1234h, в DS записано значение 5678h.
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="LEA">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+LEA
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory
+	</nobr>
+</font>
+</td>
+<td>
+Загрузка исполнительного адреса.<br>
+Команда LEA загружает в регистр, указанный в команде в качестве
+первого операнда, относительный адрес второго операнда (не значение
+операнда!). В качестве первого операнда следует указывать регистр
+общего назначения (не сегментный), в качестве второго - ячейку памяти.
+Команда<br><br>
+
+LEA reg, mem<br><br>
+эквивалентна команде<br><br>
+MOV reg,offset mem<br><br>
+но у первой команды больше возможностей описания адреса интересующей
+нас ячейки. Команда не воздействует на флаги процессора.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+    <li>REG = адрес памяти (смещение)</li>
+</ul>
+</font>
+<br>
+
+Обычно эту команду заменяют командой MOV, если это возможно.<br><br>
+Пример:
+<pre><font face="Fixedsys">
+#make_COM#
+ORG 100h
+
+LEA AX, m
+
+RET
+
+m  DW  1234h
+
+END
+</font>
+</pre>
+В AX записано значение: 0104h.<br>
+Команда LEA занимает 3 байта, команда RET занимает 1 байт,
+мы начинаем с адреса 100h, поэтому адрес 'm' - это 104h.
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="LES">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+LES
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory
+	</nobr>
+</font>
+</td>
+<td>
+Загрузка указателя с использованием регистра ES.<br>
+Считывает из памяти по указанному адресу двойное слово (32 бит),
+содержащее указатель (полный адрес некоторой ячейки), и загружает
+младшую половину указателя (т.е. относительный адрес) в указанный в
+команде регистр, а старшую половину указателя (т.е. сегментный адрес)
+в регистр ES. Таким образом, команда<br><br>
+
+LES reg, mem<br><br>
+эквивалентна следующей группе команд:<br><br>
+MOV reg, word ptr mem<br>
+MOV ES,  word ptr mem+2<br><br>
+В качестве первого операнда команды LES указывается регистр общего
+назначения; в качестве второго - ячейка памяти с двухсловным
+содержимым. Указатель, содержащийся в этой ячейке, может быть адресом
+как процедуры, так и поля данных.<br><br>
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+    <li>REG = первое слово</li>
+
+	<li>ES = второе слово</li>
+</ul>
+</font>
+<br>
+Пример:
+<pre><font face="Fixedsys">
+#make_COM#
+ORG 100h
+
+LES AX, m
+
+RET
+
+m  DW  1234h
+   DW  5678h
+
+END
+</font>
+</pre>
+В AX записано значение 1234h, В ES записано значение 5678h.
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+
+</tbody></table>
+</font>
+
+
+			<a name="LODSB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+LODSB
+</font>
+
+</td>
+<td>Нет операндов</td>
+<td>
+Загружает байт из DS:[SI] в регистр AL. Изменяет SI.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>AL = DS:[SI]<br></li>
+<li>если DF = 0 то
+	<ul>
+	<li>SI = SI + 1</li>
+	</ul>
+
+	иначе
+	<ul>
+	<li>SI = SI - 1</li>
+	</ul>
+</li>
+</ul>
+</font>
+Пример:
+<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+MOV CX, 5
+MOV AH, 0Eh
+
+m: LODSB
+INT 10h
+LOOP m
+
+RET
+
+a1 DB 'H', 'e', 'l', 'l', 'o'</font></pre>
+
+<font face="Fixedsys">
+
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="LODSW">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+LODSW
+</font>
+</td>
+
+<td>Нет операндов</td>
+<td>
+Загрузить слово из DS:[SI] в регистр AX. Изменяет SI.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>AX = DS:[SI]<br></li>
+<li>если DF = 0 то
+	<ul>
+	<li>SI = SI + 2</li>
+	</ul>
+
+	иначе
+	<ul>
+	<li>SI = SI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+Пример:
+<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+MOV CX, 5
+
+REP LODSW   ; в итоге в АХ будет значение 555h.
+
+RET
+
+a1 dw 111h, 222h, 333h, 444h, 555h</font></pre>
+
+<font face="Fixedsys">
+
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="LOOP">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+LOOP
+</font>
+</td>
+
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Уменьшает СХ, переходит на метку, если СХ не равен нулю.
+<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>CX = CX - 1<br></li>
+<li>если CX &lt;&gt; 0 то
+	<ul>
+
+	<li>выполнить переход</li>
+	</ul>
+	иначе
+	<ul>
+	<li>не выполнять переход, продолжить цикл</li>
+	</ul>
+</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV CX, 5
+label1:
+   PRINTN 'цикл!'
+   LOOP label1
+   RET</font></pre>
+
+   <font face="Fixedsys">
+   <table border="1" noshade="">
+   <tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+   <tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+   </tbody></table>
+   </font>
+
+			<a name="LOOPE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+LOOPE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Уменьшить СХ, выполнить переход, если СХ "не ноль" или "равно". (ZF = 1).
+<br><br>Алгоритм:
+
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>CX = CX - 1<br></li>
+<li>если (CX &lt;&gt; 0) и (ZF = 1) то
+	<ul>
+	<li>выполнить переход</li>
+	</ul>
+	иначе
+	<ul>
+	<li>не выполнять переход, продолжить цикл</li>
+
+	</ul>
+</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">; Цикл выполняется 5 раз или до тех пор, пока
+; результат в регистре AL лежит в пределах байта.
+; Результат превысит значение 255 на третьем "заходе" (100+100+100),
+; поэтому цикл будет завершен.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AX, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   ADD AX, 100
+   CMP AH, 0
+   LOOPE label1
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="LOOPNE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+LOOPNE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Уменьшает СХ, выполняет переход к метке если СХ не равен нулю и
+выполняется условие "не равно" (ZF = 0). <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+
+<li>CX = CX - 1<br></li>
+<li>если (CX &lt;&gt; 0) и (ZF = 0) то
+	<ul>
+	<li>выполнить переход</li>
+	</ul>
+	иначе
+	<ul>
+	<li>не выполнять переход, продолжить цикл</li>
+	</ul>
+
+</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">; Цикл выполняется 5 раз, или до тех пор,
+; пока не будет найдено число '7'.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV SI, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   MOV AL, v1[SI]
+   INC SI         ; следующий байт (SI=SI+1).
+   CMP AL, 7
+   LOOPNE label1
+   RET
+   v1 db 9, 8, 7, 6, 5</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="LOOPNZ">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+LOOPNZ
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+</td>
+<td>
+Уменьшает СХ, выполняет переход к метке, если СХ не равен нулю и
+ZF = 0. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+
+<li>CX = CX - 1<br></li>
+<li>если (CX &lt;&gt; 0) и (ZF = 0) то
+	<ul>
+	<li>выполнить переход</li>
+	</ul>
+	иначе
+	<ul>
+	<li>не выполнять переход, продолжить цикл</li>
+	</ul>
+
+</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">; Цикл выполняется 5 раз, или до тех пор,
+; пока не будет найдено число '7'.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV SI, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   MOV AL, v1[SI]
+   INC SI         ; следующий байт (SI=SI+1).
+   CMP AL, 7
+   LOOPNZ label1
+   RET
+   v1 db 9, 8, 7, 6, 5</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="LOOPZ">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+LOOPZ
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>метка</nobr>
+</font>
+
+</td>
+<td>
+Уменьшает СХ, выполняет переход к метке, если СХ не равен нулю и ZF = 1.
+<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+
+<ul>
+<li>CX = CX - 1<br></li>
+<li>если (CX &lt;&gt; 0) и (ZF = 1) то
+	<ul>
+	<li>выполнить переход</li>
+	</ul>
+	иначе
+	<ul>
+	<li>не выполнять переход, продолжить цикл</li>
+
+	</ul>
+</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">; Цикл выполняется 5 раз или до тех пор,
+; пока значение в регистре AL не выходит за пределы байта.
+; Результат превысит значение 255 на третьем цикле (100+100+100),
+; поэтому цикл будет завершен после третьего прохода.
+
+   include 'emu8086.inc'
+   #make_COM#
+   ORG 100h
+   MOV AX, 0
+   MOV CX, 5
+label1:
+   PUTC '*'
+   ADD AX, 100
+   CMP AH, 0
+   LOOPZ label1
+   RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="MOV">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+MOV
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+
+	memory, immediate<br>
+	REG, immediate<br><br>
+
+	SREG, memory<br>
+	memory, SREG<br>
+	REG, SREG<br>
+	SREG, REG
+	</nobr>
+
+</font>
+</td>
+<td>
+Копирует operand2 в operand1.<br><br>
+Команда MOV <u>не может</u>:
+<ul>
+<li>записывать данные в регистры CS и IP.</li>
+<li>копировать данные из одного сегментного регистра в другой сегментный регистр (сначала нужно скопировать данные в регистр общего назначения).</li>
+<li>копировать непосредственное значение в сегментный регистр (сначала нужно скопировать данные в регистр общего назначения).</li>
+</ul>
+<br>Алгоритм:<br><br>
+
+<font face="Fixedsys">
+<blockquote>
+operand1 = operand2
+</blockquote>
+</font>
+Пример:<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+MOV AX, 0B800h    ; установить AX = B800h (память VGA).
+MOV DS, AX        ; копировать значение из AX в DS.
+MOV CL, 'A'       ; CL = 41h (ASCII-код).
+MOV CH, 01011111b ; CL = атрибуты цвета.
+MOV BX, 15Eh      ; BX = позиция на экране.
+MOV [BX], CX      ; w.[0B800h:015Eh] = CX.
+RET               ; вернуться в операционную систему.
+</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="MOVSB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+MOVSB
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Копирует байт из DS:[SI] в ES:[DI].
+Изменяет регистры SI и DI.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>ES:[DI] = DS:[SI]<br></li>
+<li>если DF = 0 то
+	<ul>
+	<li>SI = SI + 1</li>
+
+	<li>DI = DI + 1</li>
+	</ul>
+	иначе
+	<ul>
+	<li>SI = SI - 1</li>
+	<li>DI = DI - 1</li>
+	</ul>
+</li>
+
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+LEA DI, a2
+MOV CX, 5
+REP MOVSB
+
+RET
+
+a1 DB 1,2,3,4,5
+a2 DB 5 DUP(0)</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="MOVSW">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+MOVSW
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Копирует <b>слово</b> из DS:[SI] в ES:[DI].
+Изменяет регистры SI и DI.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>ES:[DI] = DS:[SI]<br></li>
+
+<li>если DF = 0 то
+	<ul>
+	<li>SI = SI + 2</li>
+	<li>DI = DI + 2</li>
+	</ul>
+	иначе
+	<ul>
+	<li>SI = SI - 2</li>
+	<li>DI = DI - 2</li>
+
+	</ul>
+</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+
+LEA SI, a1
+LEA DI, a2
+MOV CX, 5
+REP MOVSW
+
+RET
+
+a1 DW 1,2,3,4,5
+a2 DW 5 DUP(0)</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="MUL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+MUL
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+
+</td>
+<td>
+Беззнаковое умножение.
+<br><br>Алгоритм:<br><br>
+ <blockquote>
+	 если операнд - <b>byte</b>:<br>
+	 <font face="Fixedsys">AX = AL * операнд</font>.
+ </blockquote>
+
+ <blockquote>
+	если операнд - <b>word</b>:<br>
+	<font face="Fixedsys">(DX AX) = AX * операнд</font>.
+ </blockquote>
+   Пример:<pre><font face="Fixedsys">MOV AL, 200   ; AL = 0C8h
+MOV BL, 4
+MUL BL        ; AX = 0320h (800)
+RET</font></pre>
+
+<font face="Fixedsys">
+
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>?</td> <td>?</td> <td>r</td> <td>?</td> <td>?</td> </tr>
+
+</tbody></table>
+CF=OF=0 если старшая секция результата - ноль.
+</font>
+
+ 			<a name="NEG">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+NEG
+</font>
+
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+Отрицание. Делает операнд отрицательным (дополнение до двух).
+
+<br><br>Алгоритм:<br><br>
+ <font face="Fixedsys">
+ <ul>
+ <li>Инвертировать все биты операнда</li>
+ <li>Прибавить единицу к инвертированному операнду</li>
+ </ul>
+ </font>
+    Пример:<pre><font face="Fixedsys">MOV AL, 5   ; AL = 05h
+NEG AL      ; AL = 0FBh (-5)
+NEG AL      ; AL = 05h (5)
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="NOP">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+NOP
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Нет операции. Обычно используется для небольшой задержки программы.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>Ничего не делать<br></li>
+</ul>
+</font>
+    Пример:<pre><font face="Fixedsys">; ничего не делать три раза:
+NOP
+NOP
+NOP
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="NOT">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+NOT
+</font>
+</td>
+
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+	memory<br>
+	</nobr>
+</font>
+</td>
+<td>
+Инвертирует каждый бит операнда.<br><br>Алгоритм:
+
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>если бит равен 1, переключить его в 0.<br></li>
+<li>если бит равен 0, переключить его в 1.<br></li>
+</ul>
+</font>
+    Пример:<pre><font face="Fixedsys">MOV AL, 00011011b
+NOT AL   ; AL = 11100100b
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="OR">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+
+OR
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+Логическое ИЛИ между всеми битами двух операндов. Результат записывается
+в первый операнд.<br><br>
+Выполняются следующие правила:<br><br>
+<font face="Fixedsys">
+1 OR 1 = 1<br>
+1 OR 0 = 1<br>
+0 OR 1 = 1<br>
+
+0 OR 0 = 0<br>
+</font>
+<br><br>Пример:<pre><font face="Fixedsys">MOV AL, 'A'       ; AL = 01000001b
+OR AL, 00100000b  ; AL = 01100001b  ('a')
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>0</td> <td>r</td> <td>r</td> <td>0</td> <td>r</td> <td>?</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="OUT">&nbsp;</a>
+</td>
+</tr>
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+OUT
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	im.byte, AL<br>
+
+	im.byte, AX<br>
+	DX, AL<br>
+	DX, AX
+	</nobr>
+</font>
+</td>
+<td>
+Выводит данные из регистра <b>AL</b> или <b>AX</b> в порт.<br>
+
+Первый операнд - номер порта. Если требуется доступ к порту, номер которого
+превышает 255, то должен быть использован регистр <b>DX</b>.
+
+<br><br>Пример:<pre><font face="Fixedsys">MOV AX, 0FFFh ; Включить все
+OUT 4, AX     ; светофоры.
+
+MOV AL, 100b  ; Включть третий магнит
+OUT 7, AL     ; шагового двигателя.</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="POP">&nbsp;</a>
+</td>
+</tr>
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+POP
+
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+	SREG<br>
+	memory
+	</nobr>
+</font>
+</td>
+
+<td>
+Получает 16-битовое значение из стека.
+<br><br>Алгоритм:<br><br>
+ <font face="Fixedsys">
+ <ul>
+ <li>операнд = SS:[SP] (вершина стека)</li>
+ <li>SP = SP + 2</li>
+ </ul>
+ </font>
+
+ <br>Пример:<pre><font face="Fixedsys">MOV AX, 1234h
+PUSH AX
+POP  DX     ; DX = 1234h
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="POPA">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+POPA
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Выгружает все регистры общего назначения DI, SI, BP, SP, BX, DX, CX, AX из стека.<br>
+(Значение SP игнорируется, оно выгружается, но не записывается в регистр SP).<br><br>
+Примечание: эта команда работает только на процессорах <b>80186</b> и выше!
+<br><br>Алгоритм:<br><br>
+
+ <font face="Fixedsys">
+ <ul>
+ <li>POP DI</li>
+ <li>POP SI</li>
+ <li>POP BP</li>
+ <li>POP xx (значение SP игнорируется)</li>
+ <li>POP BX</li>
+
+ <li>POP DX</li>
+ <li>POP CX</li>
+ <li>POP AX</li>
+ </ul>
+ </font>
+
+ <font face="Fixedsys">
+ <table border="1" noshade="">
+
+ <tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+ <tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+
+ </tbody></table>
+ </font>
+
+			<a name="POPF">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+POPF
+
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Получает регистр флагов из стека.
+<br><br>Алгоритм:<br><br>
+ <font face="Fixedsys">
+ <ul>
+ <li>флаги = SS:[SP] (вершина стека)</li>
+ <li>SP = SP + 2</li>
+
+ </ul>
+ </font>
+
+ <font face="Fixedsys">
+ <table border="1" noshade="">
+ <tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+ <tr bgcolor="#FFFFFF"> <td colspan="6"><center>выгружаются из стека</center></td> </tr>
+ </tbody></table>
+ </font>
+
+ 			<a name="PUSH">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+PUSH
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG<br>
+	SREG<br>
+
+	memory<br>
+	immediate
+	</nobr>
+</font>
+</td>
+<td>
+Записывает 16-битовое значение в стек.<br><br>
+
+Примечание: <b>PUSH immediate</b> работает только на процессорах 80186 и выше!
+<br><br>Алгоритм:<br><br>
+
+ <font face="Fixedsys">
+ <ul>
+ <li>SP = SP - 2</li>
+ <li>SS:[SP] (вершина стека) = операнд</li>
+ </ul>
+ </font>
+<br>Пример:<pre><font face="Fixedsys">MOV AX, 1234h
+PUSH AX
+POP  DX     ; DX = 1234h
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+ 			<a name="PUSHA">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+PUSHA
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Помещает в стек все регистры общего назначения: AX, CX, DX, BX, SP, BP, SI, DI.<br>
+Использует оригинальное значение регистра SP (перед выполнением PUSHA).<br><br>
+Примечание: эта команда работает только на процессорах 80186 и выше!
+<br><br>Алгоритм:<br><br>
+ <font face="Fixedsys">
+ <ul>
+
+	<li>PUSH AX</li>
+	<li>PUSH CX</li>
+	<li>PUSH DX</li>
+	<li>PUSH BX</li>
+	<li>PUSH SP</li>
+	<li>PUSH BP</li>
+
+	<li>PUSH SI</li>
+	<li>PUSH DI</li>
+ </ul>
+ </font>
+
+ <font face="Fixedsys">
+ <table border="1" noshade="">
+ <tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+ <tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+ </tbody></table>
+ </font>
+
+			<a name="PUSHF">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+PUSHF
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Записывает регистр флагов в стек.
+<br><br>Алгоритм:<br><br>
+ <font face="Fixedsys">
+ <ul>
+
+ <li>SP = SP - 2</li>
+ <li>SS:[SP] (вершина стека) = флаги</li>
+ </ul>
+ </font>
+
+ <font face="Fixedsys">
+ <table border="1" noshade="">
+ <tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+ <tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+ </tbody></table>
+ </font>
+
+ 			<a name="RCL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+RCL
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+Циклический сдвиг (ротация) влево через перенос. Количество ротаций
+устанавливается во втором операнде.
+<br>
+Если <b>immediate</b> больше единицы, ассемблер генерирует несколько
+команд <b>RCL xx, 1</b>, потому что 8086 имеет машинный код только
+для этой команды (тот же принцип работы используют все команды
+сдвига/ротации).
+
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+
+<ul>
+	самый левый бит записать во флаг CF,
+	сдвинуть все биты влево,
+	значение флага CF записать в самый правый бит (бит 0).
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">STC               ; установить перенос (CF=1).
+MOV AL, 1Ch       ; AL = 00011100b
+RCL AL, 1         ; AL = 00111001b,  CF=0.
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</font>
+
+			<a name="RCR">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+RCR
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+Циклический сдвиг (ротация) вправо через перенос. Количество ротаций
+устанавливается во втором операнде.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	самый правый бит (бит 0) записать во флаг CF,
+	сдвинуть все биты вправо,
+	значение флага CF записать в самый левый бит.
+
+</ul>
+</font>
+<br>Пример:<pre><font face="Fixedsys">STC               ; установить перенос (CF=1).
+MOV AL, 1Ch       ; AL = 00011100b
+RCR AL, 1         ; AL = 10001110b,  CF=0.
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+
+</font>
+
+			<a name="REP">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+REP
+</font>
+</td>
+<td>
+
+<font face="Fixedsys">
+	<nobr>нужная команда</nobr><br>
+</font>
+</td>
+<td>
+Повторяет следующие команды MOVSB, MOVSW, LODSB, LODSW, STOSB, STOSW.
+Количество повторов указано в СХ.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+check_cx:<br><br>
+если CX &lt;&gt; 0 то
+<ul>
+	<li>выполнить <u>нужную команду</u></li>
+
+	<li>CX = CX - 1</li>
+	<li>вернуться к метке check_cx</li>
+</ul>
+иначе
+<ul>
+	<li>выйти из REP-цикла</li>
+</ul>
+</font>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>Z</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td>  </tr>
+</tbody></table>
+</font>
+
+			<a name="REPE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+REPE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>нужная команда</nobr><br>
+</font>
+</td>
+<td>
+
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 1, но не более CX раз.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+check_cx:<br><br>
+если CX &lt;&gt; 0 то
+<ul>
+	<li>выполнить <u>нужную команду</u></li>
+	<li>CX = CX - 1</li>
+	<li>если ZF = 1 то:
+		<ul>
+
+		<li>вернуться к метке check_cx</li>
+		</ul>
+	иначе
+		<ul>
+		<li>выйти из REPE-цикла</li>
+		</ul>
+	</li>
+</ul>
+иначе
+
+<ul>
+	<li>выйти из REPE-цикла</li>
+</ul>
+</font>
+Пример:<br>
+см. <b><a href="http://www.avprog.narod.ru/progs/Samples/cmpsb.asm">cmpsb.asm</a></b> в каталоге Samples.
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>Z</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td>  </tr>
+</tbody></table>
+</font>
+
+			<a name="REPNE">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+
+<td>
+<font face="Fixedsys">
+REPNE
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>нужная команда</nobr><br>
+</font>
+</td>
+<td>
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 0, но не более CX раз.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+
+check_cx:<br><br>
+если CX &lt;&gt; 0 то
+<ul>
+	<li>выполнить <u>нужную команду</u></li>
+	<li>CX = CX - 1</li>
+	<li>если ZF = 0 то:
+		<ul>
+		<li>вернуться к метке check_cx</li>
+
+		</ul>
+	иначе
+		<ul>
+		<li>выйти из REPNE-цикла</li>
+		</ul>
+	</li>
+</ul>
+иначе
+<ul>
+	<li>выйти из REPNE-цикла</li>
+
+</ul>
+</font>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>Z</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td>  </tr>
+</tbody></table>
+</font>
+
+			<a name="REPNZ">&nbsp;</a>
+
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+REPNZ
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>нужная команда</nobr><br>
+
+</font>
+</td>
+<td>
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 0, но не более CX раз.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+check_cx:<br><br>
+если CX &lt;&gt; 0 то
+<ul>
+	<li>выполнить <u>нужную команду</u></li>
+	<li>CX = CX - 1</li>
+
+	<li>если ZF = 0 то:
+		<ul>
+		<li>вернуться к метке check_cx</li>
+		</ul>
+	иначе
+		<ul>
+		<li>выйти из REPNZ-цикла</li>
+		</ul>
+	</li>
+
+</ul>
+иначе
+<ul>
+	<li>выйти из REPNZ-цикла</li>
+</ul>
+</font>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>Z</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td>  </tr>
+
+</tbody></table>
+</font>
+
+			<a name="REPZ">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+REPZ
+</font>
+
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>нужная команда</nobr><br>
+</font>
+</td>
+<td>
+Повторяет следующие команды CMPSB, CMPSW, SCASB, SCASW, пока
+ZF = 1, но не более CX раз.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+check_cx:<br><br>
+если CX &lt;&gt; 0 то
+
+<ul>
+	<li>выполнить <u>нужную команду</u></li>
+	<li>CX = CX - 1</li>
+	<li>если ZF = 1 то:
+		<ul>
+		<li>вернуться к метке check_cx</li>
+		</ul>
+	иначе
+		<ul>
+
+		<li>выйти из REPZ-цикла</li>
+		</ul>
+	</li>
+</ul>
+иначе
+<ul>
+	<li>выйти из REPZ-цикла</li>
+</ul>
+</font>
+
+<font face="Fixedsys">
+
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>Z</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td>  </tr>
+</tbody></table>
+</font>
+
+			<a name="RET">&nbsp;</a>
+</td>
+</tr>
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+RET
+</font>
+</td>
+<td>Нет операндов<br>
+или четное immediate</td>
+<td>
+Возврат из ближней процедуры.
+<br><br>Алгоритм:<br><br>
+
+<font face="Fixedsys">
+<ul>
+	<li>
+		Получить из стека:
+		<ul>
+		<li>IP</li>
+		</ul>
+	</li>
+	<li>
+	если имеется операнд <u>immediate</u>:
+	<nobr>SP = SP + операнд</nobr>
+
+	</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">#make_COM#
+ORG 100h  ; для COM-файла.
+
+CALL p1
+
+ADD AX, 1
+
+RET         ; вернуться в операционную систему.
+
+p1 PROC     ; объявление процедуры.
+    MOV AX, 1234h
+    RET     ; вернуться в программу.
+p1 ENDP</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="RETF">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+RETF
+</font>
+</td>
+<td>Нет операндов<br>
+или четное immediate</td>
+<td>
+Возврат из дальней процедуры.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	<li>
+		Получить из стека:
+		<ul>
+
+		<li>IP</li>
+		<li>CS</li>
+		</ul>
+	</li>
+	<li>
+	если имеется операнд <u>immediate</u>:
+	<nobr>SP = SP + операнд</nobr>
+
+	</li>
+</ul>
+</font>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="ROL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+ROL
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+
+</font>
+</td>
+<td>
+Циклический сдвиг (ротация) влево. Количество ротаций устанавливается
+во втором операнде.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	самый левый бит записать во флаг CF, сдвинуть все биты влево,
+	в самый правый бит записать флаг CF.
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">MOV AL, 1Ch       ; AL = 00011100b
+ROL AL, 1         ; AL = 00111000b,  CF=0.
+RET</font></pre>
+
+<font face="Fixedsys">
+
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</font>
+
+			<a name="ROR">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+ROR
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+Циклический сдвиг (ротация) вправо. Количество ротаций устанавливается
+во втором операнде.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+
+	самый правый бит записать во флаг CF, сдвинуть все биты вправо,
+	в самый левый бит записать флаг CF.
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">MOV AL, 1Ch       ; AL = 00011100b
+ROR AL, 1         ; AL = 00001110b,  CF=0.
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</font>
+
+			<a name="SAHF">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SAHF
+</font>
+
+</td>
+<td>Нет операндов</td>
+<td>
+Записать данные из регистра АН в младшие 8 битов регистра флагов.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	регистр флагов = AH<br>
+</ul>
+<pre><font face="Fixedsys">
+Биты АН:   7    6   5    4   3    2   1    0
+         [SF] [ZF] [0] [AF] [0] [PF] [1] [CF]</font>
+</pre>
+
+биты 1, 3, 5 зарезервированы.
+</font>
+
+<br><br>
+
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="SAL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SAL
+</font>
+</td>
+<td>
+
+<font face="Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+Арифметический сдвиг влево. Количество сдвигов записывается во второй операнд.
+
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	<li>самый левый бит записать в CF, сдвинуть все биты влево,</li>
+	<li>в самый правый бит записать ноль.</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">MOV AL, 0E0h      ; AL = 11100000b
+SAL AL, 1         ; AL = 11000000b,  CF=1.
+RET</font></pre>
+
+<font face="Fixedsys">
+
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</font>
+
+			<a name="SAR">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SAR
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Арифметический сдвиг вправо. Количество сдвигов записывается во второй операнд.
+
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+<ul>
+	<li>самый правый бит записать в CF, сдвинуть все биты вправо,</li>
+	<li>в самый правый бит записать ноль.</li>
+	<li>Бит знака, который вставляется в самую левую позицию, имеет то же значение,
+	что и перед сдвигом.</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">MOV AL, 0E0h      ; AL = 11100000b
+SAR AL, 1         ; AL = 11110000b,  CF=0.
+
+MOV BL, 4Ch       ; BL = 01001100b
+SAR BL, 1         ; BL = 00100110b,  CF=0.
+
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+
+</font>
+
+			<a name="SBB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SBB
+</font>
+</td>
+<td>
+
+<font face="Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+
+</font>
+</td>
+<td>
+
+Вычитание с заемом.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+operand1 = operand1 - operand2 - CF
+</font>
+<br><br>
+Пример:<pre><font face="Fixedsys">STC
+MOV AL, 5
+SBB AL, 3    ; AL = 5 - 3 - 1 = 1
+
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+
+</tbody></table>
+</font>
+
+			<a name="SCASB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SCASB
+</font>
+
+</td>
+<td>Нет операндов</td>
+<td>
+
+Сравнивает байты (ищет байт в строке): <nobr>AL из ES:[DI].</nobr> <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>ES:[DI] - AL<br></li>
+<li>установить флаги в зависимости от результата:<br> OF, SF, ZF, AF, PF, CF<br></li>
+
+<li>если DF = 0 то
+	<ul>
+	<li>DI = DI + 1</li>
+	</ul>
+	иначе
+	<ul>
+	<li>DI = DI - 1</li>
+	</ul>
+</li>
+</ul>
+
+</font>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="SCASW">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SCASW
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Сравнивает слова: <nobr>AX из ES:[DI].</nobr> <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>ES:[DI] - AX<br></li>
+<li>установить флаги в зависимости от результата:<br> OF, SF, ZF, AF, PF, CF<br></li>
+<li>если DF = 0 то
+	<ul>
+	<li>DI = DI + 2</li>
+
+	</ul>
+	иначе
+	<ul>
+	<li>DI = DI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="SHL">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SHL
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+Сдвиг влево. Количество сдвигов указывается во втором операнде.
+Знаковый бит рассматривается как обычный бит данных.
+
+<br><br>Algorithm:<br><br>
+
+<font face="Fixedsys">
+<ul>
+	<li>Записать самый левый бит в CF, сдвинуть все биты влево.</li>
+	<li>В самый правый бит записать ноль.</li>
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">MOV AL, 11100000b
+SHL AL, 1         ; AL = 11000000b,  CF=1.
+
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</font>
+
+			<a name="SHR">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SHR
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>memory, immediate</nobr><br>
+	<nobr>REG, immediate</nobr><br><br>
+	<nobr>memory, CL</nobr><br>
+
+	<nobr>REG, CL</nobr>
+</font>
+</td>
+<td>
+
+Сдвиг вправо. Количество сдвигов указывается во втором операнде.
+Знаковый бит рассматривается как обычный бит данных.
+
+<br><br>Algorithm:<br><br>
+<font face="Fixedsys">
+<ul>
+	<li>Записать самый правый бит в CF, сдвинуть все биты вправо.</li>
+	<li>В самый левый бит записать ноль.</li>
+
+</ul>
+</font>
+Пример:<pre><font face="Fixedsys">MOV AL, 00000111b
+SHR AL, 1         ; AL = 00000011b,  CF=1.
+
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>O</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> </tr>
+
+</tbody></table>
+OF=0 если первый операнд сохраняет первоначальный знак (+ или -).
+</font>
+
+			<a name="STC">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+STC
+</font>
+
+</td>
+<td>Нет операндов</td>
+<td>
+
+Устанавливает флаг переноса (CF). <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+CF = 1
+</font>
+
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>1</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="STD">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+
+<font face="Fixedsys">
+STD
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Устанавливает флаг направления (DF). Значения регистров SI и DI
+уменьшаются командами: CMPSB, CMPSW, LODSB, LODSW, MOVSB, MOVSW, STOSB, STOSW. <br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+DF = 1
+</font>
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>D</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>1</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="STI">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+STI
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+Устанавливает флаг прерываний. Это включает аппаратные прерывания.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+
+IF = 1
+</font>
+<br><br>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>I</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>1</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="STOSB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+STOSB
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Записывает байт из AL в ES:[DI]. Изменяет SI.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>ES:[DI] = AL<br></li>
+<li>если DF = 0 то
+	<ul>
+	<li>DI = DI + 1</li>
+	</ul>
+	иначе
+	<ul>
+
+	<li>DI = DI - 1</li>
+	</ul>
+</li>
+</ul>
+</font>
+Пример:
+<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+
+LEA DI, a1
+MOV AL, 12h
+MOV CX, 5
+
+REP STOSB
+
+RET
+
+a1 DB 5 dup(0)</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="STOSW">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+
+<td>
+<font face="Fixedsys">
+STOSW
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Записывает слово из AX в ES:[DI]. Изменяет SI.<br><br>Алгоритм:
+<br><br>
+<font face="Fixedsys">
+<ul>
+<li>ES:[DI] = AX<br></li>
+<li>если DF = 0 то
+	<ul>
+
+	<li>DI = DI + 2</li>
+	</ul>
+	иначе
+	<ul>
+	<li>DI = DI - 2</li>
+	</ul>
+</li>
+</ul>
+</font>
+Пример:
+
+<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+
+LEA DI, a1
+MOV AX, 1234h
+MOV CX, 5
+
+REP STOSW
+
+RET
+
+a1 DW 5 dup(0)</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="SUB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+SUB
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+
+Вычитание.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+operand1 = operand1 - operand2
+</font>
+<br><br>
+
+Пример:<pre><font face="Fixedsys">MOV AL, 5
+SUB AL, 1         ; AL = 4
+
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="TEST">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+TEST
+</font>
+</td>
+<td>
+
+<font face="Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+
+</font>
+</td>
+<td>
+Логическое И между всеми битами двух операндов. Не изменяет результирующий
+операнд, а влияет только на флаги. Задействованы следующие флаги: <b>ZF, SF, PF.</b>
+<br><br>
+Выполняются следующие правила:<br><br>
+<font face="Fixedsys">
+1 AND 1 = 1<br>
+1 AND 0 = 0<br>
+0 AND 1 = 0<br>
+0 AND 0 = 0<br>
+
+</font>
+<br><br>
+Пример:<pre><font face="Fixedsys">MOV AL, 00000101b
+TEST AL, 1         ; ZF = 0.
+TEST AL, 10b       ; ZF = 1.
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td>0</td> <td>r</td> <td>r</td> <td>0</td> <td>r</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="XCHG">&nbsp;</a>
+
+</td>
+</tr>
+
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+XCHG
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+
+	REG, memory<br>
+	memory, REG<br>
+	REG, REG
+	</nobr>
+</font>
+</td>
+<td>
+Перестановка двух операндов.
+<br><br>Алгоритм:<br><br>
+<font face="Fixedsys">
+operand1 &lt; - &gt; operand2
+
+</font>
+<br><br>
+Пример:<pre><font face="Fixedsys">MOV AL, 5
+MOV AH, 2
+XCHG AL, AH   ; AL = 2, AH = 5
+XCHG AL, AH   ; AL = 5, AH = 2
+RET</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="XLATB">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+XLATB
+</font>
+</td>
+<td>Нет операндов</td>
+<td>
+
+Транслирует байт из таблицы.<br>
+Копирует байт из памяти по адресу <nobr>DS:[BX + беззнаковый AL]</nobr> в
+регистр AL.
+<br><br>Алгоритм:<br><br>
+
+<font face="Fixedsys">
+AL = DS:[BX + беззнаковый AL]
+</font>
+<br><br>
+Пример:<pre><font face="Fixedsys">#make_COM#
+ORG 100h
+LEA BX, dat
+MOV AL, 2
+XLATB     ; AL = 33h
+
+RET
+
+dat DB 11h, 22h, 33h, 44h, 55h</font></pre>
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+
+<tr bgcolor="#FFFFFF"> <td colspan="6">не изменяются</td> </tr>
+</tbody></table>
+</font>
+
+			<a name="XOR">&nbsp;</a>
+</td>
+</tr>
+
+
+
+
+
+
+<tr bgcolor="#FFFFFF">
+<td>
+<font face="Fixedsys">
+XOR
+</font>
+</td>
+<td>
+<font face="Fixedsys">
+	<nobr>
+	REG, memory<br>
+	memory, REG<br>
+
+	REG, REG<br>
+	memory, immediate<br>
+	REG, immediate
+	</nobr>
+</font>
+</td>
+<td>
+Логическое XOR (Исключающее ИЛИ)между всеми битами двух операндов.
+Результат записывается в первый операнд.<br><br>
+Выполняются следующие правила:<br><br>
+<font face="Fixedsys">
+
+1 XOR 1 = 0<br>
+1 XOR 0 = 1<br>
+0 XOR 1 = 1<br>
+0 XOR 0 = 0<br>
+</font>
+<br><br>
+Пример:<pre><font face="Fixedsys">MOV AL, 00000111b
+XOR AL, 00000010b    ; AL = 00000101b
+RET</font></pre>
+
+
+<font face="Fixedsys">
+<table border="1" noshade="">
+
+<tbody><tr bgcolor="#FFFFFF"> <td>C</td> <td>Z</td> <td>S</td> <td>O</td> <td>P</td> <td>A</td> </tr>
+<tr bgcolor="#FFFFFF"> <td>0</td> <td>r</td> <td>r</td> <td>0</td> <td>r</td> <td>?</td> </tr>
+
+</tbody></table>
+</font>
+
+
+</td>
+</tr>
+
+
+
+
+
+</tbody></table>
+
+<br><br>
+
+<hr>
+
+<br><br><br>
+<center>
+<font size="2">
+Copyright © 2003 Emu8086, Inc.<br>
+Все права защищены.<br>
+<a href="http://www.emu8086.com/" rel="nofollow" target="_blank"><b>http://www.emu8086.com</b></a>
+</font>
+</center>
+
+<br><br><br>
+<!--Конец текста страницы-->
+
+</div>	<!-- contTxt -->
+</div>	<!-- cont -->
+<div class="clear"></div>
+<div id="bottom">
+
+<!--Нижняя часть-->
+  <script type="text/javascript" src="./Полный набор команд процессора 8086_files/bottom.js" charset="utf-8"></script><div id="bottomLeft"><span class="bottomText">Инфо-МАСТЕР <sup>®</sup><br>Все права защищены <sup>©</sup><br>e-mail: <a href="mailto:mail@info-master.su">mail@info-master.su</a></span></div><div id="bottomRight"><span class="bottomText"><a href="http://avprog.narod.ru/">Главная</a><br><a href="http://avprog.narod.ru/map.htm">Карта</a><br><a href="http://av-mag.ru/contact.htm" target="_blank">Контакты</a></span></div>  
+
+  <noscript>
+	<div id="bottomLeft">
+	<span class="bottomText">
+	Инфо-МАСТЕР <sup>&#174;</sup><br> 
+  Все права защищены <sup>&#169;</sup><br>
+  e-mail: <a href="mailto:mail@info-master.su">mail@info-master.su</a>  
+	</span>
+	</div>
+	<div id="bottomRight">
+	<span class="bottomText">
+	  <a href="http://avprog.narod.ru">Главная</a><br>
+    <a href="http://avprog.narod.ru/map.htm">Карта</a><br>
+    <a href="http://av-mag.ru/contact.htm" target="_blank">Контакты</a>
+  </div>
+	</span>
+  </noscript>
+	
+	<div id="bottomCenter">
+		<br>
+		<!--Счётчики-->
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter1005477 = new Ya.Metrika({id:1005477,
+                        webvisor:true,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true});
+            } catch(e) { }
+        });
+    
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="//mc.yandex.ru/watch/1005477" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+     <!--LiveInternet counter--><script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' "+
+    "target=_blank><img src='//counter.yadro.ru/hit?t14.12;r"+
+    escape(top.document.referrer)+((typeof(screen)=="undefined")?"":
+    ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+    ";"+Math.random()+
+    "' alt='' title='LiveInternet: показано число просмотров за 24"+
+    " часа, посетителей за 24 часа и за сегодня' "+
+    "border='0' width='88' height='31'><\/a>")
+    //--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="./Полный набор команд процессора 8086_files/hit" alt="" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня" border="0" width="88" height="31"></a><!--/LiveInternet-->
+    
+    <!--Rating@Mail.ru counter-->
+    <script language="javascript" type="text/javascript"><!--
+    d=document;var a='';a+=';r='+escape(top.document.referrer);js=10;//--></script>
+    <script language="javascript1.1" type="text/javascript"><!--
+    a+=';j='+navigator.javaEnabled();js=11;//--></script>
+    <script language="javascript1.2" type="text/javascript"><!--
+    s=screen;a+=';s='+s.width+'*'+s.height;
+    a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth);js=12;//--></script>
+    <script language="javascript1.3" type="text/javascript"><!--
+    js=13;//--></script><script language="javascript" type="text/javascript"><!--
+    d.write('<a href="http://top.mail.ru/jump?from=1794995" target="_top">'+
+    '<img src="http://d3.c6.bb.a1.top.mail.ru/counter?id=1794995;t=214;js='+js+
+    a+';rand='+Math.random()+'" alt="Рейтинг@Mail.ru" border="0" '+
+    'height="31" width="88"><\/a>');if(11<js)d.write('<'+'!-- ');//--></script><a href="http://top.mail.ru/jump?from=1794995" target="_top"><img src="./Полный набор команд процессора 8086_files/counter" alt="Рейтинг@Mail.ru" border="0" height="31" width="88"></a><!-- 
+    <noscript><a target="_top" href="http://top.mail.ru/jump?from=1794995">
+    <img src="http://d3.c6.bb.a1.top.mail.ru/counter?js=na;id=1794995;t=214"
+    height="31" width="88" border="0" alt="Рейтинг@Mail.ru"></a></noscript>
+    <script language="javascript" type="text/javascript"><!--
+    if(11<js)d.write('--'+'>');//-->
+    <!--// Rating@Mail.ru counter-->
+    
+    <!--Openstat--><span id="openstat2081265"></span><script type="text/javascript">
+    var openstat = { counter: 2081265, image: 5045, next: openstat, track_links: "ext" }; document.write(unescape("%3Cscript%20src=%22http" +
+    (("https:" == document.location.protocol) ? "s" : "") +
+    "://openstat.net/cnt.js%22%20defer=%22defer%22%3E%3C/script%3E"));
+    </script><script src="./Полный набор команд процессора 8086_files/cnt.js" defer="defer"></script><!--/Openstat--> 
+  </div>
+	<div class="clear"></div>
+</div>
+</div>	<!-- main -->
+
+<script type="text/javascript" src="./Полный набор команд процессора 8086_files/bottom-prog.js" charset="utf-8"></script> 
+
+
+</body></html>

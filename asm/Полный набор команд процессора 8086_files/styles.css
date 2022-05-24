@@ -1,0 +1,593 @@
+@charset "UTF-8";
+/* --- Начало -------------------------------------------------------------- */
+body
+{
+	margin:0px;
+  padding:0px;
+  font-family: Verdana, Tahoma;
+  font-size:12pt;
+  color:#000000;
+  background-color:#30187E;
+  /*background-image:url(../images/fon.jpg);*/
+  background-position:center top;
+  background-repeat:repeat-y;
+}
+/* --- Основной блок ------------------------------------------------------- */
+#main
+{
+	width:1024px;
+	padding:0px;
+	background-color:#FFFFFF;
+	margin:0px auto 0px auto;
+}
+/* --- Заголовок ----------------------------------------------------------- */
+#header
+{
+	width:1024px;
+	height:210px;
+	margin:0px;
+	padding:0px;
+	font-family:Arial, Tahoma;
+	font-style:italic;
+  font-size: 10pt;
+  color:#30187E;
+	background-color:#C5C6E9;
+	/*background-image:url(../images/header-01.jpg);*/
+	background-repeat:no-repeat;
+}
+#header
+{
+  font-family:Arial, Tahoma;
+	font-style:italic;
+  font-size: 10pt;
+  color:#30187E;
+}
+#header a:link
+{
+	color:#30187E; 
+}
+#header a:visited
+{
+	color:#30187E;
+}
+#header a:active
+{
+	color:#30187E;
+}
+#header a:hover
+{
+	color: #777777;
+} 
+#headerLeft
+{
+	width:500px;
+	height: 140px;
+	margin-left:20px;
+	margin-top:0px;
+	padding-top:10px;
+	border:1px;
+	border-style:none;
+	background-color:#C5C6E9;
+	float:left;
+}
+#headerLeft td
+{
+  font-family:Arial, Tahoma;
+	font-style:italic;
+  font-size: 10pt;
+  color:#30187E;
+}
+#headerCenter
+{
+	width:500px;
+	margin-left:500px;
+	margin-top:0px;
+	padding-top:20px;
+	text-align:right;
+	border:1px;
+	border-style:none;
+	background-color:#C5C6E9;
+}
+/* --- Список -------------------------------------------------------------- */
+/*ul
+{
+  list-style-image: url(../images/mark-01.png);  
+}*/
+/* --- Главное меню (вверху) ----------------------------------------------- */
+div#menuMain
+{
+  width:1024px;  
+  margin-top:0px;
+  padding-top:0px;
+  padding: 0px;
+	left: 0px;
+	height:60px;
+  background: #30187E;
+} 
+div#menuMain table
+{
+  margin-top: 0px;
+  padding:0px;
+  left:0px; 
+} 
+div#menuMain td
+{
+  padding-left: 15px;
+  padding-top: 5px;
+  font-family: Arial;
+	font-size: 11pt;
+	font-style:normal;
+	float: left;
+}  
+div#menuMain a, i
+{
+  display: block;
+	color: #C5C6E9;
+	font-family: Arial;
+	font-size: 11pt;  	
+	text-decoration: none;
+	background: #30187E;
+}
+div#menuMain a:link
+{
+	color: #C5C6E9;
+	font-family: Arial;
+  font-size: 11pt;
+  font-weight: normal;
+  text-decoration: none;	
+} 
+div#menuMain a:visited
+{
+	color: #C5C6E9;
+	font-family: Arial;
+  font-size: 11pt;
+  font-weight: normal;
+  text-decoration: none;	
+} 
+div#menuMain a:hover
+{
+  color: #FFFFFF;
+  font-family: Arial;
+  font-size: 11pt;
+  font-weight: bold;
+  border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	background: #30187E;
+  text-decoration: none;	
+} 
+div#menuMain a:active
+{
+	color: #CCCCCC;
+	font-family: Arial;
+  font-size: 11pt;
+  font-weight: normal;
+  text-decoration: none;	
+}
+/* --- Главное меню (слева) ------------------------------------------------ */
+#menu
+{
+	width:250px;
+	padding:0px;
+	margin:0px;
+	background-color:#FFFFFF;
+	float:left;
+}
+#menuTxt
+{
+	width:230px;
+	padding-left:5px;
+	margin:5px;
+}
+/* --- Левый блок меню ----------------------------------------------------- */
+.menuLeft
+{       
+  margin: 0px;
+  padding: 0px;
+	width: 200px;		
+} 
+.menuLeft a
+{
+  display: block;    
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	color: #CCCCCC;
+	font-family: Arial;
+	font-size: 11pt;  	
+	text-decoration: none;
+	background: #C5C6E9; 
+	border-color: #FFFFFF;
+	border-style: solid;
+	border-width: 0px 0px 0px 0px; /* верх-право-низ-лево*/
+	text-indent: 10px;
+}
+.menuLeft ul
+{
+	list-style:none;
+}
+.menuLeft a:link
+{
+	color: #9E81FF;
+	font-family: Arial;
+  font-size: 11pt;
+  font-weight: normal;
+  text-decoration: none;	
+} 
+.menuLeft a:visited
+{
+	color: #9E81FF;
+	font-family: Arial;
+  font-size: 11pt;
+  font-weight: normal;
+  text-decoration: none;	
+} 
+.menuLeft a:hover
+{
+  color: #9E81FF;
+  font-family: Arial;
+  font-size: 11pt;
+  font-weight: bold;
+  border-style: solid;
+	border-width: 0px 0px 2px 0px;
+	border-color: #333333;
+	text-indent: 10px;
+	width: 200px;
+  text-decoration: none;	
+} 
+.menuLeft a:active
+{
+	color: #CCCCCC;
+	font-family: Arial;
+  font-size: 11pt;
+  font-weight: normal;
+  text-decoration: none;	
+}
+/* --- Блок новостей ------------------------------------------------------- */
+#news
+{
+	width:150px;
+	padding:0px;
+	background: #FFFFFF; 
+	margin:0px 0px 0px 0px;
+	float:right;
+}
+#newsTxt
+{
+	padding-left:3px;
+	padding-right:5px;
+	background-color:#FFFFFF;
+	font-family: Arial;
+	font-size: 10pt;  	
+	text-decoration: none;
+}
+.newsText a:link
+{
+	font-weight:bold;
+	color:#000000; 
+}
+.newsText a:visited
+{
+	font-weight:bold;
+	color:#000000;
+}
+.newsText a:active
+{
+	font-weight:bold;
+	color:#000000;
+}
+.newsText a:hover
+{
+	font-weight:bold;
+	color: #AAAAAA;
+} 
+/* --- Блок содержимого ---------------------------------------------------- */
+#cont
+{
+	width:610px;
+	padding:0px;
+	margin-left:250px;
+  margin-right:150px;
+	background-color:#FFFFFF;
+}
+/* --- Основной текст ------------------------------------------------------ */
+#contTxt
+{
+	padding-top:15px;
+  padding-left:10px;
+	padding-right:10px;
+	background-color:#FFFFFF;
+}
+/* --- Блок подписки (на странице и слева) --------------------------------- */
+#podpiska
+{
+	width:300px;
+  padding:10px;
+  border:1px;
+	border-color:#95B7B7;
+  border-style:solid;
+	font-family:Arial;
+	font-size:11pt;
+	font-style:italic;
+  text-align:center;
+  margin:0px auto 0px auto;
+}
+#podpiskaLeft
+{
+  background-color:#FFFFFF;
+  text-align:center;
+  width:220px;
+  padding:5px;
+  border:1px;
+	border-color:#333333;
+  border-style:solid;
+	font-family:Arial;
+  font-style:normal;
+  font-weight:bold;
+	font-size:11pt;
+  text-align:center;
+  margin:20px 0px 10px auto;
+}
+/* --- Блок с изображением ------------------------------------------------- */
+#imgBlock
+{
+	background-color:#FFFFFF;
+  padding:5px;
+  border:1px;
+	border-color:#CCCCCC;
+  border-style:solid;
+	font-family:Arial;
+	font-size:11pt;
+	font-style:normal;
+  font-weight:bold;
+  text-align:center;
+  margin:10px auto 10px auto;
+}
+/* --- Блок с кодом -------------------------------------------------------- */
+#codeBlock
+{
+	background-color:#EEEEEE;
+  padding:5px;
+  border:1px;
+	border-color:#CCCCCC;
+  border-style:solid;
+	font-family:"Courier New", "Lucida Console";
+	font-size:10pt;
+	font-style:normal;
+  text-align:left;
+  margin:10px auto 10px auto;
+}
+/* --- Нижняя часть -------------------------------------------------------- */
+#bottom
+{
+	width:1024px;
+	height:80px;
+	padding:0px;
+	margin:0px;
+	background-color:#C5C6E9;
+}
+#bottomLeft
+{
+	width: 230px;
+	height:60px;
+	padding:10px;
+	margin:0px;
+	font-family: Tahoma, Arial;
+  font-size: 10pt;
+  color: #30187E;  
+  float:left;
+}
+#bottomRight
+{
+	width:130px;
+	height:60px;
+	margin-left:0px;
+	padding:10px;
+	font-family: Tahoma, Arial;
+  font-size: 10pt;
+  color: #30187E;
+  float:right;
+}
+#bottomCenter
+{
+	width:580px;
+	height:60px;
+	margin-left:260px;
+	padding:10px;
+	text-align:center;
+	font-family: Tahoma, Arial;
+  font-size: 10pt;
+  color: #30187E;
+}
+.bottomText a:link
+{
+	color:#30187E; 
+}
+.bottomText a:visited
+{
+	color:#30187E;
+}
+.bottomText a:active
+{
+	color:#30187E;
+}
+.bottomText a:hover
+{
+	color: #777777;
+} 
+/* --- Примечания ---------------------------------------------------------- */
+.notes
+{
+	padding:10px;
+  border:1px;
+	border-color:#30187E;  
+	background-color:#E6E8FB;
+  border-style:dashed;
+	font-family:Arial;
+	font-size:11pt;
+	font-style:italic;
+}
+/* --- Блок с таблицей ----------------------------------------------------- */
+.tableBlock
+{
+	font-family:Arial;
+	font-size:11pt;
+	font-style:normal;
+}
+.tableHeader
+{
+	padding:5px;
+  background-color:#E6E8FB;
+  font-family:Arial;
+	font-size:11pt;
+	font-style:normal;	
+  font-weight:bold;
+  vertical-align:top;
+}
+.tableTd
+{
+  padding:5px;
+  border:1px;
+  border-color:#E6E8FB;
+  border-style:solid;
+  background-color:#FFFFFF;
+  font-family:Arial;
+	font-size:11pt;
+	font-style:normal;
+  vertical-align:top;
+  text-align:center;	
+}
+.textfield 
+{
+	background-color:#FFFFFF;
+	height:24px;
+	width:245px;
+	padding: 5px;
+  border-style:solid;
+  border-color:#95B7B7;
+	border-width:1px;
+}
+.submit-button 
+{
+	background-image: url(http://info-master.su/programming/images/submit.png);
+	height: 72px;
+	width: 271px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	margin-top: 5px;
+}
+/* --- Основные ссылки ----------------------------------------------------- */
+a:link
+{
+	font-weight:bold;
+	color:#30187E; 
+}
+a:visited
+{
+	font-weight:bold;
+	color:#000000;
+}
+a:active
+{
+	font-weight:bold;
+	color:#30187E;
+}
+a:hover
+{
+	font-weight:bold;
+	color: #AAAAAA;
+}
+/* --- Абзац --------------------------------------------------------------- */
+p
+{
+  text-align: left;
+  padding:0px;
+}
+/* --- Заголовки ----------------------------------------------------------- */
+h1
+{
+  font-family: Tahoma;
+  font-size: 22pt;
+  font-weight: bold;
+  color: #30187E;
+}
+h2
+{
+  font-family: Tahoma;
+  font-size: 20pt;
+  font-weight: bold;
+  color: #30187E;
+} 
+h3
+{
+  font-family: Tahoma;
+  font-size: 18pt;
+  font-weight: bold;
+  color: #30187E;
+}
+h4
+{
+  font-family: Tahoma;
+  font-size: 16pt;
+  font-weight: bold;
+  color: #30187E;
+}
+h5
+{
+  font-family: Tahoma;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #30187E;
+}
+.clear
+{
+	clear:both;
+}
+#yellowFon
+{
+  background-color: #FFDD00; 
+  font-weight: bold; 
+}
+#redFon
+{
+  background-color: #FF0000; 
+  font-weight: bold;
+  color: #FFFFFF; 
+}
+#greenFon
+{
+  background-color: #00FF00;
+  font-weight: bold;
+}
+#bottomFon
+{
+  background-color:#000000;
+  font-style:normal; 
+  font-weight:bold;
+  color:#EDF8F6;
+}
+
+body#home #menuMain	.home a,
+body#money #menuMain	.money a,
+body#cars #menuMain	.cars a,
+body#comp #menuMain	.comp a,
+body#elektron #menuMain	.elektron a,
+body#phone #menuMain .phone a,
+body#stud #menuMain .stud a,
+body#auto #menuMain .auto a,
+body#prog #menuMain .prog a,
+body#soft #menuMain .soft a,
+body#project #menuMain .project a,
+body#books #menuMain .books a,
+body#links #menuMain .links a
+{
+	color: #FFFFFF;
+  font-family: Arial;
+  font-size: 11pt;
+  font-weight: bold;
+  border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	background: #30187E;
+  text-decoration: none;
+}        
