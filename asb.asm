@@ -19,12 +19,13 @@
         mov [0x04FE], 0x0520;even
         mov [0x04FA], 0x0540;odd
         
-        mov [0x04F8], 0x0560;sort even
-        mov [0x04F6], 0x0580;sort odd
+        mov [0x04F8], 0x0520;sort even
+        mov [0x04F6], 0x0540;sort odd
         
         mov [0x04F4], 0x0;count even
         mov [0x04F2], 0x0;count odd
-        mov [0x04F0], 0x0;count arithmetic mean odd 
+        mov [0x04F0], 0x0;count arithmetic mean odd
+        mov [0x04EE], 0x0 
          
         mov di, [0x04FC]
         mov dx, 0
@@ -49,14 +50,11 @@
             
         l1: loop l0         
         
-        cmp ax,0
-        js q6 
-        div [0x04F2]
-        jmp finish_count_mean 
-        q6:neg ax
-        div [0x04F2]
-        neg ax
-        finish_count_mean:mov [0x04F0], ax
+            cwd
+            mov cx,[0x04f2]   
+            idiv cx
+            mov [0x04F0],ax
+            mov [0x04EE],dx
         
          
         
